@@ -7,7 +7,7 @@ package controlador;
 import modelo.Programa;
 import java.util.Vector;
 import accesoDatos.*;
-
+    //ESTA CLASE SOLAMENTE ESTARA ACA COMO MEDIDA DE APOYO PARA DEMAS PROCESOS
 /**
  *
  * @author Oswaldo
