@@ -9,6 +9,7 @@ package accesoDatos;
  *
  * @author Oswaldo
  */
+//Fachada de la base de datos y donde hacemos que la conexion sea exitosa
 import java.sql.*;
 public class FachadaBD {
         String url, usuario, password;

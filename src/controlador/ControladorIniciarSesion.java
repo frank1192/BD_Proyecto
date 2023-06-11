@@ -3,11 +3,11 @@ package controlador;
 
 import modelo.ModeloIniciarSesion;
 import Vistas.VistaIniciarSesion;
-import Vistas.VistaPrincipal;
+import Vistas.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-
+import modelo.Modelo_editorial;
 import accesoDatos.InterfaceIniciarSesionDAO;
 
 /**
@@ -43,9 +43,13 @@ public class ControladorIniciarSesion implements ActionListener {
             ModeloIniciarSesion administrador = administradorDAO.getAdministrador(Model.getUsuario());
             
             if(administrador != null && administrador.getContraseña().equals(Model.getContraseña())){
-                JOptionPane.showMessageDialog(null, "El Acceso Fue Valido", "Advertencia", JOptionPane.ERROR_MESSAGE);
-                VistaPrincipal vistaPrincipal = new VistaPrincipal(Usuario);
-                vistaPrincipal.setVisible(true);
+                JOptionPane.showMessageDialog(null, "El Acceso Fue Valido", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+                   Vista_editorial Vista_editorial =  new Vista_editorial();
+                   Modelo_editorial Modelo_editorial =new Modelo_editorial();
+                   Vista_editorial.setVisible(true);
+                   ;
+//                VistaPrincipal vistaPrincipal = new VistaPrincipal(Usuario);
+//                vistaPrincipal.setVisible(true);
 //                ControladorMenu controladorMenu = new ControladorMenu(vistamenu);
 //                controladorMenu.iniciar();
                 view.dispose();
