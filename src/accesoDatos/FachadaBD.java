@@ -13,7 +13,7 @@ import java.sql.*;
 public class FachadaBD {
 
         String url, usuario, password;
-        Connection conexion =null;   
+        Connection conexion =null;
         
         FachadaBD(){
             url="jdbc:postgresql://localhost:5432/tablas_y_registros";

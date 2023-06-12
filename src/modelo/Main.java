@@ -1,7 +1,7 @@
 
 package modelo;
 
-import Vistas.VistaIniciarSesion;
+import Vistas.*;
 import accesoDatos.IniciarSesion_DAO;
 import accesoDatos.InterfaceIniciarSesionDAO;
 import controlador.ControladorIniciarSesion;
@@ -13,16 +13,18 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        VistaIniciarSesion view = new VistaIniciarSesion ();
         
-        ModeloIniciarSesion model = new ModeloIniciarSesion("Usuario", "Contraseña");
-        InterfaceIniciarSesionDAO daoAministrador = new IniciarSesion_DAO();
-        ControladorIniciarSesion ctrl = new ControladorIniciarSesion (view,model, daoAministrador);
+        Vista_area_de_conocimiento XD = new Vista_area_de_conocimiento();
+        XD.setVisible(true);
 
-        ctrl.iniciar();
+//        VistaIniciarSesion view = new VistaIniciarSesion ();
+//        ModeloIniciarSesion model = new ModeloIniciarSesion("Usuario", "Contraseña");
+//        InterfaceIniciarSesionDAO daoAministrador = new IniciarSesion_DAO();
+//        ControladorIniciarSesion ctrl = new ControladorIniciarSesion (view,model, daoAministrador);
 
-        view.setVisible(true);
+//        ctrl.iniciar();
+
+//        view.setVisible(true);
 
     }
     

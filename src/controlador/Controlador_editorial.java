@@ -31,7 +31,7 @@ public class Controlador_editorial  {
         //Se llama al dao para guardar
         System.out.println("Se va a insertar una Editorial");
         
-        int result =editorial_DAO.guardar_editorial(Modelo_editorial);
+        int result = editorial_DAO.guardar_editorial(Modelo_editorial);
         
         System.out.println("Se  insertó  una  nueva Editorial");
         
