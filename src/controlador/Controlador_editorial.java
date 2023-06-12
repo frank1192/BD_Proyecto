@@ -7,23 +7,20 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Franklin Aguirre
  */
-
 public class Controlador_editorial  {
-    
-    
+        
     editorial_DAO editorial_DAO;
     
     public Controlador_editorial(){
-        editorial_DAO =new editorial_DAO();
-           
+        editorial_DAO = new editorial_DAO();           
     }
     
-    
-    public int  insertar_editorial(String  codigo_editorial, String nombre_editorial, String pagina_web_editorial, String pais_de_origen_editorial){
+    public int insertar_editorial(String  codigo_editorial, String nombre_editorial, String pagina_web_editorial, String pais_de_origen_editorial){
         Modelo_editorial Modelo_editorial = new Modelo_editorial();        
 
         Modelo_editorial.setCodigo_editorial(codigo_editorial);
@@ -39,21 +36,12 @@ public class Controlador_editorial  {
         System.out.println("Se  insertó  una  nueva Editorial");
         
         return result;
-
-
     }
+
     public Modelo_editorial consultar_editorial(String codigo_editorial){
         
-         System.out.println("Se va a consultar un programa");
-         Modelo_editorial Modelo_editorial= editorial_DAO.consultar_editorial(codigo_editorial);
+        Modelo_editorial Modelo_editorial = editorial_DAO.consultar_editorial(codigo_editorial);
       
-       return Modelo_editorial;
+        return Modelo_editorial;
     }
-    
-
-    
-
-    
-    
-    
 }

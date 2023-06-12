@@ -4,14 +4,14 @@
  */
 
 package accesoDatos;
+import java.sql.*;
 
 /**
  *
- * @author Oswaldo
+ * @author ___
  */
-//Fachada de la base de datos y donde hacemos que la conexion sea exitosa
-import java.sql.*;
 public class FachadaBD {
+
         String url, usuario, password;
         Connection conexion =null;   
         
@@ -21,29 +21,23 @@ public class FachadaBD {
             password="$PGadmin$";
         }
         
-        
-
         public Connection openConnection(){
             try {
-            // Se carga el driver
-            Class.forName("org.postgresql.Driver");
-            //System.out.println( "Driver Cargado" );
+                Class.forName("org.postgresql.Driver");
+                System.out.println( "Driver cargado" );
             } catch( ClassNotFoundException e ) {
-                System.out.println( "No se pudo cargar el driver." );
+                System.out.println( "No se pudo cargar el driver" );
             }
 
             try{
-                     //Crear el objeto de conexion a la base de datos
-                     conexion = DriverManager.getConnection(url, usuario, password);
-                     System.out.println( "Conexion Exitosa con la Base de datos" );
-                     return conexion;
-                  //Crear objeto Statement para realizar queries a la base de datos
+                conexion = DriverManager.getConnection(url, usuario, password);
+                System.out.println( "Conexion exitosa con la base de datos" );
+                return conexion;
              } catch( SQLException e ) {
-                System.out.println( "No se pudo abrir la bd." );
+                System.out.println( "No se pudo conectar la base de datos" );
                 return null;
              }
-
-        }//end connectar
+        }
 
         public Connection getConnetion(){
             if (conexion == null) {
@@ -51,8 +45,7 @@ public class FachadaBD {
             }
             else{
                   return conexion;      
-            }
-            
+            }            
         }
         
         public void closeConection(Connection c){
@@ -62,7 +55,7 @@ public class FachadaBD {
                 }
                  
             } catch( SQLException e ) {
-                System.out.println( "No se pudo cerrar." );
+                System.out.println( "No se pudo cerrar" );
             }
         }
         
@@ -74,4 +67,4 @@ public class FachadaBD {
         }*/
         
         
-}//end class
+}

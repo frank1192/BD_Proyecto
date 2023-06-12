@@ -59,7 +59,7 @@ public class Vista_editorial extends javax.swing.JFrame {
         txtpais_de_origen_editorial.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jLabel1.setText("Genero Literario");
+        jLabel1.setText("Pais de origen");
 
         lblAutor.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         lblAutor.setText("Pagina web");
@@ -130,9 +130,11 @@ public class Vista_editorial extends javax.swing.JFrame {
                             .addComponent(txtnombre_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtcodigo_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(85, 85, 85)
+                                .addComponent(btnBuscar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAgregar)))
+                        .addGap(0, 135, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblAutor)
                         .addGap(35, 35, 35)
@@ -141,7 +143,7 @@ public class Vista_editorial extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtpais_de_origen_editorial, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                        .addComponent(txtpais_de_origen_editorial, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                         .addGap(326, 326, 326))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -154,8 +156,7 @@ public class Vista_editorial extends javax.swing.JFrame {
                                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(114, 114, 114))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnAgregar)
-                                    .addGap(18, 18, 18)
+                                    .addGap(115, 115, 115)
                                     .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,12 +167,18 @@ public class Vista_editorial extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigo)
-                    .addComponent(txtcodigo_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCodigo)
+                            .addComponent(txtcodigo_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreRecurso)
                     .addComponent(txtnombre_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -183,13 +190,11 @@ public class Vista_editorial extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtpais_de_origen_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(11, 11, 11)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(24, 24, 24)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,8 +211,24 @@ public class Vista_editorial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add yossssur handling code here:
-       
+        
+        System.out.println("Se presiono el boton buscar");
+        
+        String codigo = txtcodigo_editorial.getText();
+                        
+        try {
+            Modelo_editorial modelo_editorial = controlador_editorial.consultar_editorial(codigo);
+
+            txtnombre_editorial.setText(modelo_editorial.getNombre_editorial());
+            txtpagina_web_editorial.setText(modelo_editorial.getPagina_web_editorial());
+            txtpais_de_origen_editorial.setText(modelo_editorial.getPais_de_origen_editorial());
+
+            System.out.println("Consulta exitosa");
+
+        }
+        catch (Exception e){
+            System.out.println("F");
+        }
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -215,12 +236,12 @@ public class Vista_editorial extends javax.swing.JFrame {
         // TODO add your handling code here:
         String codigo_editorial, nombre_editorial, pagina_web_editorial,pais_de_origen_editorial; 
        
-       codigo_editorial=txtcodigo_editorial.getText();
-       nombre_editorial=txtnombre_editorial.getText();
-       pagina_web_editorial=txtpagina_web_editorial.getText();
-       pais_de_origen_editorial=txtpais_de_origen_editorial.getText();
+        codigo_editorial = txtcodigo_editorial.getText();
+        nombre_editorial = txtnombre_editorial.getText();
+        pagina_web_editorial = txtpagina_web_editorial.getText();
+        pais_de_origen_editorial = txtpais_de_origen_editorial.getText();
        
-       try{
+        try{
            controlador_editorial.insertar_editorial(codigo_editorial, nombre_editorial, pagina_web_editorial, pais_de_origen_editorial);
            AREA.append("Editorial guardado exitosamente");
            //JOptionPane.showMessageDialog(null, "Programa guardado exitosamente");
