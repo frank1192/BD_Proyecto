@@ -12,12 +12,12 @@ import java.sql.*;
  *
  * @author juanc
  */
-public class area_de_conocimiento_DAO {
+public class DAO_area_de_conocimiento {
     
     FachadaBD fachada;
     Connection conexion;
 
-    public area_de_conocimiento_DAO(){
+    public DAO_area_de_conocimiento(){
         fachada = new FachadaBD();
         conexion = fachada.getConnetion();
     }
@@ -27,21 +27,20 @@ public class area_de_conocimiento_DAO {
         int numeroFilas=0;
         
         String sql_guardar;
-        sql_guardar="INSERT INTO editorial  VALUES ('" +
-                modelo_area_de_conocimiento.getCodigo_area_de_conocimiento()+ "', '" + modelo_area_de_conocimiento.getNombre_area_de_conocimiento()+  "', '" +
-                modelo_area_de_conocimiento.getDescripcion_area_de_conocimiento()+ "', '" + modelo_area_de_conocimiento.getCodigo_area_padre()+ "')";
+        sql_guardar="INSERT INTO area_de_conocimiento VALUES ('" +
+                modelo_area_de_conocimiento.getCodigo_area_de_conocimiento()+ "', '" + 
+                modelo_area_de_conocimiento.getNombre_area_de_conocimiento()+  "', '" +
+                modelo_area_de_conocimiento.getDescripcion_area_de_conocimiento()+ "', '" + 
+                modelo_area_de_conocimiento.getCodigo_area_padre()+ "')";
         
         try{
             Statement sentencia = this.conexion.createStatement();
-            numeroFilas = sentencia.executeUpdate(sql_guardar);            
-            System.out.println("up " + numeroFilas);
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Insersion exitosa");
         }
-        catch(SQLException e){
-            System.out.println(e); 
-            }
-        catch(Exception e){ 
-            System.out.println(e);
-        }
+        catch(SQLException e){ System.out.println("Insersion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Insersion fallida"); System.out.println(e);}
         
     }
     
@@ -50,11 +49,14 @@ public class area_de_conocimiento_DAO {
         Modelo_area_de_conocimiento modelo_area_de_conocimiento= new Modelo_area_de_conocimiento();
         
         String sql_select;
-        sql_select="SELECT codigo_area_de_conocimiento, nombre_area_de_conocimiento, descripcion_area_de_conocimiento, codigo_area_padre FROM area_de_conocimiento WHERE codigo_area_de_conocimiento='" + codigo_area_de_conocimiento +  "'";
+        sql_select="SELECT "
+                + "codigo_area_de_conocimiento, "
+                + "nombre_area_de_conocimiento, "
+                + "descripcion_area_de_conocimiento, "
+                + "codigo_area_padre "
+                + "FROM area_de_conocimiento WHERE codigo_area_de_conocimiento = '" + codigo_area_de_conocimiento +  "'";
         
         try{
-            System.out.println("consultando en la base de datos");
-
             Statement sentencia = this.conexion.createStatement();
             ResultSet seleccion = sentencia.executeQuery(sql_select);
             
@@ -64,13 +66,14 @@ public class area_de_conocimiento_DAO {
                modelo_area_de_conocimiento.setDescripcion_area_de_conocimiento(seleccion.getString(3));
                modelo_area_de_conocimiento.setCodigo_area_padre(seleccion.getString(4));
             }
+
+            System.out.println("Seleccion exitosa");
            
             return modelo_area_de_conocimiento;
         }
-        catch(SQLException e){ System.out.println(e); return null;}
-        catch(Exception e){ System.out.println(e); return null;}
+        catch(SQLException e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
-//        return null;
     }
     
 }

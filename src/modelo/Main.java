@@ -14,7 +14,16 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        Vista_area_de_conocimiento XD = new Vista_area_de_conocimiento();
+//        Vista_area_de_conocimiento XD = new Vista_area_de_conocimiento();
+        
+//        Vista_editorial XD = new Vista_editorial();
+        
+//        Vista_libro XD = new Vista_libro();
+        
+//        Vista_libro_fisico XD = new Vista_libro_fisico();
+        
+        Vista_libro_digital XD = new Vista_libro_digital();
+
         XD.setVisible(true);
 
 //        VistaIniciarSesion view = new VistaIniciarSesion ();

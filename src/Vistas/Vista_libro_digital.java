@@ -1,21 +1,21 @@
 
 package Vistas;
 
-import controlador.Controlador_area_de_conocimiento;
+import controlador.Controlador_libro_digital;
 import javax.swing.JOptionPane;
-import modelo.Modelo_area_de_conocimiento;
+import modelo.Modelo_libro_digital;
 /**
  *
  * @author Franklin Aguirre
  */
-public class Vista_area_de_conocimiento extends javax.swing.JFrame {
-    Controlador_area_de_conocimiento controlador_area_de_conocimiento;
+public class Vista_libro_digital extends javax.swing.JFrame {
+    Controlador_libro_digital controlador_libro_digital;
     /**
      * Creates new form Vista_editorial
      */
-    public Vista_area_de_conocimiento() {
+    public Vista_libro_digital() {
         initComponents();
-        controlador_area_de_conocimiento = new Controlador_area_de_conocimiento();
+        controlador_libro_digital = new Controlador_libro_digital();
     }
 
     /**
@@ -28,10 +28,7 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
     private void initComponents() {
 
         btnFinalizar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtA_1 = new javax.swing.JTextArea();
         txt_3 = new javax.swing.JTextField();
-        lbl_4 = new javax.swing.JLabel();
         lbl_3 = new javax.swing.JLabel();
         lbl_2 = new javax.swing.JLabel();
         txt_2 = new javax.swing.JTextField();
@@ -41,6 +38,8 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
         btnActualizar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        lbl_4 = new javax.swing.JLabel();
+        txt_4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,25 +50,18 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
         btnFinalizar.setBorderPainted(false);
         btnFinalizar.setFocusable(false);
 
-        txtA_1.setColumns(20);
-        txtA_1.setRows(5);
-        jScrollPane1.setViewportView(txtA_1);
-
         txt_3.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
-        lbl_4.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        lbl_4.setText("Descripcion:");
-
         lbl_3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        lbl_3.setText("Codigo de area padre:");
+        lbl_3.setText("Formato:      ");
 
         lbl_2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        lbl_2.setText("Nombre:");
+        lbl_2.setText("Url:");
 
         txt_2.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
         lbl_1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        lbl_1.setText("Codigo:");
+        lbl_1.setText("ISBN:");
 
         txt_1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
@@ -116,6 +108,11 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
             }
         });
 
+        lbl_4.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        lbl_4.setText("Tamaño:");
+
+        txt_4.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,19 +120,18 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_3)
-                            .addComponent(lbl_2)
-                            .addComponent(lbl_1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_2)
-                            .addComponent(txt_1)
-                            .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lbl_4)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                    .addComponent(lbl_3)
+                    .addComponent(lbl_2)
+                    .addComponent(lbl_1)
+                    .addComponent(lbl_4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txt_2)
+                        .addComponent(txt_1)
+                        .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 360, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -151,35 +147,37 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
-                        .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txt_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbl_1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(lbl_2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_3)))
+                        .addComponent(txt_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(txt_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(15, 15, 15)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(8, 8, 8))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_1)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(27, 27, 27)
+                                    .addComponent(lbl_2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lbl_3)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lbl_4)
+                            .addGap(54, 54, 54))))
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
 
         pack();
@@ -187,41 +185,39 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         
-        System.out.println("Se presiono el boton buscar");
-        
-        String codigo = txt_1.getText();
+        String isbn_libro_digital = txt_1.getText();
                         
         try {
-            Modelo_area_de_conocimiento modelo_area_de_conocimiento = controlador_area_de_conocimiento.consultar_area_de_conocimiento(codigo);
+            Modelo_libro_digital modelo_libro_digital = controlador_libro_digital.consultar_libro_digital(isbn_libro_digital);
 
-            txt_2.setText(modelo_area_de_conocimiento.getNombre_area_de_conocimiento());
-            txtA_1.setText(modelo_area_de_conocimiento.getDescripcion_area_de_conocimiento());
-            txt_3.setText(modelo_area_de_conocimiento.getCodigo_area_padre());
+            txt_2.setText(modelo_libro_digital.getUrl_libro_digital());
+            txt_3.setText(modelo_libro_digital.getFormato_libro_digital());
+            txt_4.setText(modelo_libro_digital.getTamanyo_libro_digital());
 
 //            System.out.println("Consulta exitosa");
 
         }
         catch (Exception e){
-//            System.out.println("Font");
+//            System.out.println("Consulta fallida");
         }
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String codigo, nombre, codigo_area_padre, descripcion; 
+        String isbn_libro_digital, url_libro_digital, formato_libro_digital, tamanyo_libro_digital; 
        
-        codigo = txt_1.getText();
-        nombre = txt_2.getText();
-        codigo_area_padre = txt_3.getText();
-        descripcion = txtA_1.getText();
-       
+        isbn_libro_digital = txt_1.getText();
+        url_libro_digital = txt_2.getText();
+        formato_libro_digital = txt_3.getText();
+        tamanyo_libro_digital = txt_4.getText();
+                       
         try{
-           controlador_area_de_conocimiento.agregar_area_de_conocimiento(codigo, nombre, descripcion, codigo_area_padre);
-           limpiarGUI();
-//           txtA_descripcion.append("Guardado exitoso");
+           controlador_libro_digital.agregar_libro_digital(isbn_libro_digital, url_libro_digital, formato_libro_digital, tamanyo_libro_digital);
+           limpiarGUI();          
+//            txtA_descripcion.append("Guardado exitoso");
         }
         catch(Exception e){
-//           txtA_descripcion.append("Guardado fallido");
+//            txtA_descripcion.append("Guardado fallido");
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -231,8 +227,8 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");
-        txtA_1.setText("");
         txt_3.setText("");
+        txt_4.setText("");
     }
     
     /**
@@ -246,14 +242,13 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnFinalizar;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_1;
     private javax.swing.JLabel lbl_2;
     private javax.swing.JLabel lbl_3;
     private javax.swing.JLabel lbl_4;
-    public javax.swing.JTextArea txtA_1;
     public javax.swing.JTextField txt_1;
     public javax.swing.JTextField txt_2;
     public javax.swing.JTextField txt_3;
+    public javax.swing.JTextField txt_4;
     // End of variables declaration//GEN-END:variables
 }
