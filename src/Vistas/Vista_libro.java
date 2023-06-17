@@ -4,18 +4,23 @@ package Vistas;
 import controlador.Controlador_libro;
 import javax.swing.JOptionPane;
 import modelo.Modelo_libro;
+import modelo.Modelo_libros_y_autores;
+import controlador.Controlador_libros_y_autores;
+
 /**
  *
  * @author Franklin Aguirre
  */
 public class Vista_libro extends javax.swing.JFrame {
     Controlador_libro controlador_libro;
+    Controlador_libros_y_autores controlador_libros_y_autores;
     /**
      * Creates new form Vista_editorial
      */
     public Vista_libro() {
         initComponents();
         controlador_libro = new Controlador_libro();
+        controlador_libros_y_autores = new Controlador_libros_y_autores();
     }
 
     /**
@@ -47,6 +52,9 @@ public class Vista_libro extends javax.swing.JFrame {
         txt_4 = new javax.swing.JTextField();
         txt_6 = new javax.swing.JTextField();
         txt_7 = new javax.swing.JTextField();
+        lbl_9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtA_1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,11 +156,18 @@ public class Vista_libro extends javax.swing.JFrame {
             }
         });
 
+        lbl_9.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        lbl_9.setText("Codigos de autores:");
+
+        txtA_1.setColumns(20);
+        txtA_1.setRows(5);
+        jScrollPane1.setViewportView(txtA_1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -164,29 +179,32 @@ public class Vista_libro extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_2)
                             .addComponent(txt_1)
-                            .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnFinalizar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)))
+                        .addGap(69, 69, 69))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_6)
                             .addComponent(lbl_5)
                             .addComponent(lbl_4)
                             .addComponent(lbl_7)
-                            .addComponent(lbl_8))
+                            .addComponent(lbl_8)
+                            .addComponent(lbl_9))
                         .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_7, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_6, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFinalizar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)))
-                .addGap(69, 69, 69))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_7, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(txt_5, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(txt_4, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(txt_6, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,10 +246,6 @@ public class Vista_libro extends javax.swing.JFrame {
                         .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_7)
                             .addComponent(txt_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -239,8 +253,16 @@ public class Vista_libro extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_8)
                             .addComponent(txt_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(176, 255, Short.MAX_VALUE)))
-                .addGap(46, 46, 46))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_9)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                        .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))))
         );
 
         pack();
@@ -252,6 +274,7 @@ public class Vista_libro extends javax.swing.JFrame {
                         
         try {
             Modelo_libro modelo_libro = controlador_libro.consultar_libro(isbn_libro);
+            String lista_de_autores = controlador_libros_y_autores.consultar_autores_de_libro(isbn_libro);
 
             txt_2.setText(modelo_libro.getTitulo_libro());
             txt_3.setText(modelo_libro.getAnyo_de_publicacion_libro());
@@ -259,18 +282,20 @@ public class Vista_libro extends javax.swing.JFrame {
             txt_5.setText(modelo_libro.getNumero_de_paginas_libro());
             txt_6.setText(modelo_libro.getCodigo_area_de_conocimiento_libro());
             txt_7.setText(modelo_libro.getCodigo_editorial_libro());
+            
+            txtA_1.setText(lista_de_autores);
 
 //            System.out.println("Consulta exitosa");
 
         }
         catch (Exception e){
-//            System.out.println("Consulta fallida");
+//            System.out.println("F");
         }
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String isbn_libro, titulo_libro, anyo_de_publicacion_libro, idioma_libro, numero_de_paginas_libro, codigo_area_de_conocimiento_libro, codigo_editorial_libro; 
+        String isbn_libro, titulo_libro, anyo_de_publicacion_libro, idioma_libro, numero_de_paginas_libro, codigo_area_de_conocimiento_libro, codigo_editorial_libro, lista_de_autores; 
        
         isbn_libro = txt_1.getText();
         titulo_libro = txt_2.getText();
@@ -279,15 +304,22 @@ public class Vista_libro extends javax.swing.JFrame {
         numero_de_paginas_libro = txt_5.getText();
         codigo_area_de_conocimiento_libro = txt_6.getText();
         codigo_editorial_libro = txt_7.getText();
+        
+        lista_de_autores = txtA_1.getText();
                 
 //        descripcion = txtA_descripcion.getText();getText
        
         try{
-           controlador_libro.agregar_libro(isbn_libro, titulo_libro, anyo_de_publicacion_libro, idioma_libro, numero_de_paginas_libro, codigo_area_de_conocimiento_libro, codigo_editorial_libro);
-           limpiarGUI();          
+            controlador_libro.agregar_libro(isbn_libro, titulo_libro, anyo_de_publicacion_libro, idioma_libro, numero_de_paginas_libro, codigo_area_de_conocimiento_libro, codigo_editorial_libro);
+           
+            if (!"".equals(lista_de_autores)){
+                controlador_libros_y_autores.agregar_autores_a_libro(isbn_libro, lista_de_autores);
+            }
+            limpiarGUI();
 //            txtA_descripcion.append("Guardado exitoso");
         }
         catch(Exception e){
+//            System.out.println("F");
 //            txtA_descripcion.append("Guardado fallido");
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -307,9 +339,11 @@ public class Vista_libro extends javax.swing.JFrame {
         txt_1.setText("");
         txt_2.setText("");
         txt_3.setText("");
+        txt_4.setText("");
         txt_5.setText("");
         txt_6.setText("");
         txt_7.setText("");        
+        txtA_1.setText("");
     }
     
     /**
@@ -323,6 +357,7 @@ public class Vista_libro extends javax.swing.JFrame {
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnFinalizar;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_1;
     private javax.swing.JLabel lbl_2;
     private javax.swing.JLabel lbl_3;
@@ -331,6 +366,8 @@ public class Vista_libro extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_6;
     private javax.swing.JLabel lbl_7;
     private javax.swing.JLabel lbl_8;
+    private javax.swing.JLabel lbl_9;
+    private javax.swing.JTextArea txtA_1;
     public javax.swing.JTextField txt_1;
     public javax.swing.JTextField txt_2;
     public javax.swing.JTextField txt_3;

@@ -28,6 +28,26 @@ public class Main {
 
         XD.setVisible(true);
 
+
+//        String cadena = "- Hola\n- Mundo\n- Ejemplo\n- ZD\n- FF";
+//        int inicio = cadena.indexOf("- ") + 2;
+//        int fin = cadena.indexOf("\n", inicio);
+//
+//        while (inicio != -1 && fin != -1) {
+//            String palabra = cadena.substring(inicio, fin);
+//            System.out.println(palabra);
+//
+//            inicio = cadena.indexOf("- ", fin) + 2;
+//            fin = cadena.indexOf("\n", inicio);
+//        }
+//
+//        // Imprimir la última palabra
+//        if (inicio != -1) {
+//            String ultimaPalabra = cadena.substring(inicio);
+//            System.out.println(ultimaPalabra);
+//        }
+
+
 //        VistaIniciarSesion view = new VistaIniciarSesion ();
 //        ModeloIniciarSesion model = new ModeloIniciarSesion("Usuario", "Contraseña");
 //        InterfaceIniciarSesionDAO daoAministrador = new IniciarSesion_DAO();

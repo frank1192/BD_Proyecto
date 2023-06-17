@@ -4,18 +4,23 @@ package Vistas;
 import controlador.Controlador_autor;
 import javax.swing.JOptionPane;
 import modelo.Modelo_autor;
+import modelo.Modelo_libros_y_autores;
+import controlador.Controlador_libros_y_autores;
+
 /**
  *
  * @author Franklin Aguirre
  */
 public class Vista_autor extends javax.swing.JFrame {
     Controlador_autor controlador_autor;
+    Controlador_libros_y_autores controlador_libros_y_autores;
     /**
      * Creates new form Vista_editorial
      */
     public Vista_autor() {
         initComponents();
         controlador_autor = new Controlador_autor();
+        controlador_libros_y_autores = new Controlador_libros_y_autores();
     }
 
     /**
@@ -42,6 +47,9 @@ public class Vista_autor extends javax.swing.JFrame {
         lbl_4 = new javax.swing.JLabel();
         txt_5 = new javax.swing.JTextField();
         txt_4 = new javax.swing.JTextField();
+        lbl_9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtA_1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,6 +133,13 @@ public class Vista_autor extends javax.swing.JFrame {
 
         txt_4.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
+        lbl_9.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        lbl_9.setText("ISBN de libros:");
+
+        txtA_1.setColumns(20);
+        txtA_1.setRows(5);
+        jScrollPane1.setViewportView(txtA_1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,23 +151,28 @@ public class Vista_autor extends javax.swing.JFrame {
                     .addComponent(lbl_2)
                     .addComponent(lbl_1)
                     .addComponent(lbl_5)
-                    .addComponent(lbl_4))
+                    .addComponent(lbl_4)
+                    .addComponent(lbl_9))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txt_2)
-                        .addComponent(txt_1)
-                        .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txt_5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFinalizar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txt_2)
+                                .addComponent(txt_1)
+                                .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnFinalizar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnActualizar)))
                 .addGap(69, 69, 69))
         );
         layout.setVerticalGroup(
@@ -183,24 +203,28 @@ public class Vista_autor extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(27, 27, 27)
                                         .addComponent(lbl_5)))
-                                .addGap(27, 27, 27)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                         .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(108, 108, 108)
-                            .addComponent(txt_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(334, 334, 334))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(txt_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(4, 4, 4)
-                            .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(307, 307, 307))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addComponent(txt_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txt_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(161, 161, 161)))
                 .addGap(46, 46, 46))
         );
 
@@ -213,11 +237,14 @@ public class Vista_autor extends javax.swing.JFrame {
         
         try {
             Modelo_autor modelo_autor = controlador_autor.consultar_autor(codigo_autor);
+            String lista_de_autores = controlador_libros_y_autores.consultar_libros_de_autor(codigo_autor);
 
             txt_2.setText(modelo_autor.getPrimer_nombre_autor());
             txt_3.setText(modelo_autor.getSegundo_nombre_autor());
             txt_4.setText(modelo_autor.getPrimer_apellido_autor());
             txt_5.setText(modelo_autor.getSegundo_apellido_autor());
+            
+            txtA_1.setText(lista_de_autores);
 
 //            System.out.println("Consulta exitosa");
 
@@ -229,18 +256,24 @@ public class Vista_autor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String codigo_autor, primer_nombre_autor, segundo_nombre_autor, primer_apellido_autor, segundo_apellido_autor; 
+        String codigo_autor, primer_nombre_autor, segundo_nombre_autor, primer_apellido_autor, segundo_apellido_autor, lista_de_libros; 
        
         codigo_autor = txt_1.getText();
         primer_nombre_autor = txt_2.getText();
         segundo_nombre_autor = txt_3.getText();
         primer_apellido_autor = txt_4.getText();
         segundo_apellido_autor = txt_5.getText();
+        
+        lista_de_libros = txtA_1.getText();
                 
 //        descripcion = txtA_descripcion.getText();getText
        
         try{
-           controlador_autor.agregar_autor(codigo_autor, primer_nombre_autor, segundo_nombre_autor, primer_apellido_autor, segundo_apellido_autor);
+            controlador_autor.agregar_autor(codigo_autor, primer_nombre_autor, segundo_nombre_autor, primer_apellido_autor, segundo_apellido_autor);
+           
+            if (!"".equals(lista_de_libros)){
+              controlador_libros_y_autores.agregar_libros_a_autor(codigo_autor, lista_de_libros);
+            }
            limpiarGUI();
 //            txtA_descripcion.append("Guardado exitoso");
         }
@@ -262,6 +295,7 @@ public class Vista_autor extends javax.swing.JFrame {
         txt_3.setText("");
         txt_4.setText("");
         txt_5.setText("");
+        txtA_1.setText("");
     }
     
     /**
@@ -275,11 +309,14 @@ public class Vista_autor extends javax.swing.JFrame {
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnFinalizar;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_1;
     private javax.swing.JLabel lbl_2;
     private javax.swing.JLabel lbl_3;
     private javax.swing.JLabel lbl_4;
     private javax.swing.JLabel lbl_5;
+    private javax.swing.JLabel lbl_9;
+    private javax.swing.JTextArea txtA_1;
     public javax.swing.JTextField txt_1;
     public javax.swing.JTextField txt_2;
     public javax.swing.JTextField txt_3;

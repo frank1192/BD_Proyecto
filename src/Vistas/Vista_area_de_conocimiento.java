@@ -4,6 +4,7 @@ package Vistas;
 import controlador.Controlador_area_de_conocimiento;
 import javax.swing.JOptionPane;
 import modelo.Modelo_area_de_conocimiento;
+
 /**
  *
  * @author Franklin Aguirre
