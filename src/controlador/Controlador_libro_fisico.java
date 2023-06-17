@@ -6,7 +6,6 @@
 package controlador;
 
 import modelo.Modelo_libro_fisico;
-//import Vistas.Vista_libro_fisico;
 import accesoDatos.DAO_libro_fisico;
 
 /**

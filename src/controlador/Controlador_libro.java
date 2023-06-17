@@ -6,7 +6,6 @@
 package controlador;
 
 import modelo.Modelo_libro;
-//import Vistas.Vista_libro;
 import accesoDatos.DAO_libro;
 
 /**

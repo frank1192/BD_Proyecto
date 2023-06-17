@@ -6,7 +6,6 @@
 package controlador;
 
 import modelo.Modelo_area_de_conocimiento;
-//import Vistas.Vista_area_de_conocimiento;
 import accesoDatos.DAO_area_de_conocimiento;
 
 /**
