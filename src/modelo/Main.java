@@ -34,6 +34,8 @@ public class Main {
 
         Vista_area_de_interes XD = new Vista_area_de_interes();
 
+//        Vista_multa XD = new Vista_multa();
+
         XD.setVisible(true);
 
 

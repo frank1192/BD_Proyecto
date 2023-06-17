@@ -4,7 +4,6 @@ package Vistas;
 import controlador.Controlador_libro;
 import javax.swing.JOptionPane;
 import modelo.Modelo_libro;
-import modelo.Modelo_libros_y_autores;
 import controlador.Controlador_libros_y_autores;
 
 /**

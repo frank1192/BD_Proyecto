@@ -4,6 +4,7 @@ package Vistas;
 import controlador.Controlador_area_de_interes;
 import javax.swing.JOptionPane;
 import modelo.Modelo_area_de_interes;
+import controlador.Controlador_profesores_y_areas;
 
 /**
  *
@@ -11,12 +12,14 @@ import modelo.Modelo_area_de_interes;
  */
 public class Vista_area_de_interes extends javax.swing.JFrame {
     Controlador_area_de_interes controlador_area_de_interes;
+    Controlador_profesores_y_areas controlador_profesores_y_areas;
     /**
      * Creates new form Vista_editorial
      */
     public Vista_area_de_interes() {
         initComponents();
         controlador_area_de_interes = new Controlador_area_de_interes();
+        controlador_profesores_y_areas = new Controlador_profesores_y_areas(); 
     }
 
     /**
@@ -37,6 +40,9 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
         btnActualizar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtA_1 = new javax.swing.JTextArea();
+        lbl_3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +106,13 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
             }
         });
 
+        txtA_1.setColumns(20);
+        txtA_1.setRows(5);
+        jScrollPane1.setViewportView(txtA_1);
+
+        lbl_3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        lbl_3.setText("Codigos de profesores:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,12 +121,14 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_2)
-                    .addComponent(lbl_1))
-                .addGap(82, 82, 82)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt_2, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                    .addComponent(txt_1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
+                    .addComponent(lbl_1)
+                    .addComponent(lbl_3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txt_2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -127,25 +142,33 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbl_1)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(27, 27, 27)
-                            .addComponent(lbl_2)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(27, 27, 27)
+                                        .addComponent(lbl_2)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbl_3)
+                                .addGap(79, 79, 79)))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(txt_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                        .addComponent(txt_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                 .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
         );
@@ -159,9 +182,12 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
                         
         try {
             Modelo_area_de_interes modelo_area_de_interes = controlador_area_de_interes.consultar_area_de_interes(codigo_area_de_interes);
+            String lista_de_profesores = controlador_profesores_y_areas.consultar_profesores_de_area(codigo_area_de_interes);
 
             txt_2.setText(modelo_area_de_interes.getNombre_area_de_interes());
-
+            
+            txtA_1.setText(lista_de_profesores);
+            
 //            System.out.println("Consulta exitosa");
 
         }
@@ -172,14 +198,21 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String codigo_area_de_interes, nombre_area_de_interes; 
+        String codigo_area_de_interes, nombre_area_de_interes, lista_de_profesores; 
        
         codigo_area_de_interes = txt_1.getText();
         nombre_area_de_interes = txt_2.getText();
+        
+        lista_de_profesores = txtA_1.getText();
                        
         try{
            controlador_area_de_interes.agregar_area_de_interes(codigo_area_de_interes, nombre_area_de_interes);
-           limpiarGUI();          
+           
+            if (!"".equals(lista_de_profesores)){
+                controlador_profesores_y_areas.agregar_profesores_a_area(codigo_area_de_interes, lista_de_profesores);
+            }
+            
+            limpiarGUI();
 //            txtA_descripcion.append("Guardado exitoso");
         }
         catch(Exception e){
@@ -193,6 +226,7 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");
+        txtA_1.setText("");
     }
     
     /**
@@ -206,8 +240,11 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnFinalizar;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_1;
     private javax.swing.JLabel lbl_2;
+    private javax.swing.JLabel lbl_3;
+    private javax.swing.JTextArea txtA_1;
     public javax.swing.JTextField txt_1;
     public javax.swing.JTextField txt_2;
     // End of variables declaration//GEN-END:variables

@@ -4,6 +4,7 @@ package Vistas;
 import controlador.Controlador_profesor;
 import javax.swing.JOptionPane;
 import modelo.Modelo_profesor;
+import controlador.Controlador_profesores_y_areas;
 
 /**
  *
@@ -11,13 +12,14 @@ import modelo.Modelo_profesor;
  */
 public class Vista_profesor extends javax.swing.JFrame {
     Controlador_profesor controlador_profesor;
+    Controlador_profesores_y_areas controlador_profesores_y_areas;
     /**
      * Creates new form Vista_editorial
      */
     public Vista_profesor() {
         initComponents();
         controlador_profesor = new Controlador_profesor();
-    }
+        controlador_profesores_y_areas = new Controlador_profesores_y_areas();    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -194,9 +196,12 @@ public class Vista_profesor extends javax.swing.JFrame {
                         
         try {
             Modelo_profesor modelo_estudiante = controlador_profesor.consultar_profesor(codigo_usuario_profesor);
+            String lista_de_areas = controlador_profesores_y_areas.consultar_areas_de_profesor(codigo_usuario_profesor);
 
             txt_2.setText(modelo_estudiante.getTitulo_profesor());
             txt_3.setText(modelo_estudiante.getDependencia_profesor());
+            
+            txtA_1.setText(lista_de_areas);
 
 //            System.out.println("Consulta exitosa");
 
@@ -208,16 +213,21 @@ public class Vista_profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String codigo_usuario_profesor, titulo_profesor, dependencia_profesor;
+        String codigo_usuario_profesor, titulo_profesor, dependencia_profesor, lista_de_areas;
        
         codigo_usuario_profesor = txt_1.getText();
         titulo_profesor = txt_2.getText();
         dependencia_profesor = txt_3.getText();
-                
-//        descripcion = txtA_descripcion.getText();getText
+        
+        lista_de_areas = txtA_1.getText();
        
         try{
             controlador_profesor.agregar_profesor(codigo_usuario_profesor, titulo_profesor, dependencia_profesor);
+            
+            if (!"".equals(lista_de_areas)){
+                controlador_profesores_y_areas.agregar_areas_a_profesor(codigo_usuario_profesor, lista_de_areas);
+            }
+            
             limpiarGUI();
 //            txtA_descripcion.append("Guardado exitoso");
         }
@@ -234,6 +244,7 @@ public class Vista_profesor extends javax.swing.JFrame {
         txt_1.setText("");
         txt_2.setText("");
         txt_3.setText("");
+        txtA_1.setText("");
     }
     
     /**
