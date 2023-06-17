@@ -26,7 +26,10 @@ public class Main {
 
 //        Vista_autor XD = new Vista_autor();
 
-        Vista_usuario XD = new Vista_usuario();
+//        Vista_usuario XD = new Vista_usuario();
+
+        Vista_estudiante XD = new Vista_estudiante();
+
 
         XD.setVisible(true);
 
