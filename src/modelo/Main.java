@@ -22,7 +22,9 @@ public class Main {
         
 //        Vista_libro_fisico XD = new Vista_libro_fisico();
         
-        Vista_libro_digital XD = new Vista_libro_digital();
+//        Vista_libro_digital XD = new Vista_libro_digital();
+
+        Vista_autor XD = new Vista_autor();
 
         XD.setVisible(true);
 
