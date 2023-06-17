@@ -24,7 +24,9 @@ public class Main {
         
 //        Vista_libro_digital XD = new Vista_libro_digital();
 
-        Vista_autor XD = new Vista_autor();
+//        Vista_autor XD = new Vista_autor();
+
+        Vista_usuario XD = new Vista_usuario();
 
         XD.setVisible(true);
 
