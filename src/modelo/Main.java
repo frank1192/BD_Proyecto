@@ -38,7 +38,9 @@ public class Main {
 
 //        Vista_empleado XD = new Vista_empleado();
 
-        Vista_prestamo_de_libro XD = new Vista_prestamo_de_libro();
+//        Vista_prestamo_de_libro XD = new Vista_prestamo_de_libro();
+
+        Vista_descarga_de_libro XD = new Vista_descarga_de_libro();
 
         XD.setVisible(true);
 
