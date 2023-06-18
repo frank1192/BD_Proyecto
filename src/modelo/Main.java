@@ -40,7 +40,9 @@ public class Main {
 
 //        Vista_prestamo_de_libro XD = new Vista_prestamo_de_libro();
 
-        Vista_descarga_de_libro XD = new Vista_descarga_de_libro();
+//        Vista_descarga_de_libro XD = new Vista_descarga_de_libro();
+
+        Vista_solicitud_de_libro XD = new Vista_solicitud_de_libro();
 
         XD.setVisible(true);
 

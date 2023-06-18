@@ -27,7 +27,7 @@ public class DAO_prestamo_de_libro {
         int numeroFilas=0;
         
         String sql_guardar;
-        sql_guardar="INSERT INTO prestamo_de_libro (codigo_usuario_prestamo, identificacion_empleado_prestamo, isbn_libro_ejemplar_prestamo,numero_ejemplar_prestamo, fecha_de_realizacion_prestamo, descripcion_prestamo, fecha_de_devolucion_prestamo)\n VALUES ('" +
+        sql_guardar="INSERT INTO prestamo_de_libro (codigo_usuario_prestamo, identificacion_empleado_prestamo, isbn_libro_ejemplar_prestamo,numero_ejemplar_prestamo, fecha_de_realizacion_prestamo, descripcion_prestamo, fecha_de_devolucion_prestamo) VALUES ('" +
 //                modelo_prestamo_de_libro.getNumero_consecutivo_prestamo()+ "', '" + 
                 modelo_prestamo_de_libro.getCodigo_usuario_prestamo() + "', '" + 
                 modelo_prestamo_de_libro.getIdentificacion_empleado_prestamo()+ "', '" + 
