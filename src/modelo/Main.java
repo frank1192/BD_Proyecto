@@ -36,7 +36,9 @@ public class Main {
 
 //        Vista_multa XD = new Vista_multa();
 
-        Vista_empleado XD = new Vista_empleado();
+//        Vista_empleado XD = new Vista_empleado();
+
+        Vista_prestamo_de_libro XD = new Vista_prestamo_de_libro();
 
         XD.setVisible(true);
 
