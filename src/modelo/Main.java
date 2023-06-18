@@ -32,9 +32,9 @@ public class Main {
 
 //        Vista_profesor XD = new Vista_profesor();
 
-        Vista_area_de_interes XD = new Vista_area_de_interes();
+//        Vista_area_de_interes XD = new Vista_area_de_interes();
 
-//        Vista_multa XD = new Vista_multa();
+        Vista_multa XD = new Vista_multa();
 
         XD.setVisible(true);
 

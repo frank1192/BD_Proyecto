@@ -1,22 +1,22 @@
 
 package Vistas;
 
-import controlador.Controlador_area_de_conocimiento;
+import controlador.Controlador_multa;
 import javax.swing.JOptionPane;
-import modelo.Modelo_area_de_conocimiento;
+import modelo.Modelo_multa;
 
 /**
  *
  * @author Franklin Aguirre
  */
-public class Vista_area_de_conocimiento extends javax.swing.JFrame {
-    Controlador_area_de_conocimiento controlador_area_de_conocimiento;
+public class Vista_multa extends javax.swing.JFrame {
+    Controlador_multa controlador_multa;
     /**
      * Creates new form Vista_editorial
      */
-    public Vista_area_de_conocimiento() {
+    public Vista_multa() {
         initComponents();
-        controlador_area_de_conocimiento = new Controlador_area_de_conocimiento();
+        controlador_multa = new Controlador_multa();
     }
 
     /**
@@ -42,6 +42,8 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
         btnActualizar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        lbl_5 = new javax.swing.JLabel();
+        txt_4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,10 +64,10 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
         lbl_4.setText("Descripcion:");
 
         lbl_3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        lbl_3.setText("Codigo de area padre:");
+        lbl_3.setText("Valor:                          ");
 
         lbl_2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        lbl_2.setText("Nombre:");
+        lbl_2.setText("Fecha:");
 
         txt_2.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
@@ -117,6 +119,11 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
             }
         });
 
+        lbl_5.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        lbl_5.setText("Codigo de usuario:");
+
+        txt_4.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,18 +131,21 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_4)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_3)
                             .addComponent(lbl_2)
-                            .addComponent(lbl_1))
+                            .addComponent(lbl_1)
+                            .addComponent(lbl_5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_2)
-                            .addComponent(txt_1)
-                            .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lbl_4)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txt_2)
+                                .addComponent(txt_1)
+                                .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -156,12 +166,15 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
-                        .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -177,25 +190,28 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbl_3)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_5)
+                            .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-                
-        String codigo_area_de_conocimiento = txt_1.getText();
+        
+        String codigo_multa = txt_1.getText();
                         
         try {
-            Modelo_area_de_conocimiento modelo_area_de_conocimiento = controlador_area_de_conocimiento.consultar_area_de_conocimiento(codigo_area_de_conocimiento);
+            Modelo_multa modelo_multa = controlador_multa.consultar_multa(codigo_multa);
 
-            txt_2.setText(modelo_area_de_conocimiento.getNombre_area_de_conocimiento());
-            txtA_1.setText(modelo_area_de_conocimiento.getDescripcion_area_de_conocimiento());
-            txt_3.setText(modelo_area_de_conocimiento.getCodigo_area_padre());
+            txt_2.setText(modelo_multa.getFecha_multa());
+            txt_3.setText(modelo_multa.getValor_multa());
+            txt_4.setText(modelo_multa.getCodigo_usuario_multa());
+            txtA_1.setText(modelo_multa.getDescripcion_multa());
 
 //            System.out.println("Consulta exitosa");
 
@@ -207,16 +223,17 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String codigo_area_de_conocimiento, nombre_area_de_conocimiento, codigo_area_padre, descripcion_area_de_conocimiento; 
+        String codigo_multa, fecha_multa, valor_multa, descripcion_multa, codigo_usuario_multa; 
        
-        codigo_area_de_conocimiento = txt_1.getText();
-        nombre_area_de_conocimiento = txt_2.getText();
-        codigo_area_padre = txt_3.getText();
-        descripcion_area_de_conocimiento = txtA_1.getText();
+        codigo_multa = txt_1.getText();
+        fecha_multa = txt_2.getText();
+        valor_multa = txt_3.getText();
+        codigo_usuario_multa = txt_4.getText();
+        descripcion_multa = txtA_1.getText();
        
         try{
-           controlador_area_de_conocimiento.agregar_area_de_conocimiento(codigo_area_de_conocimiento, nombre_area_de_conocimiento, descripcion_area_de_conocimiento, codigo_area_padre);
-           limpiarGUI();
+            controlador_multa.agregar_multa(codigo_multa, fecha_multa, valor_multa, descripcion_multa, codigo_usuario_multa);
+            limpiarGUI();
 //           txtA_descripcion.append("Guardado exitoso");
         }
         catch(Exception e){
@@ -231,6 +248,7 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
         txt_1.setText("");
         txt_2.setText("");
         txt_3.setText("");
+        txt_4.setText("");
         txtA_1.setText("");
     }
     
@@ -250,9 +268,11 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_2;
     private javax.swing.JLabel lbl_3;
     private javax.swing.JLabel lbl_4;
+    private javax.swing.JLabel lbl_5;
     public javax.swing.JTextArea txtA_1;
     public javax.swing.JTextField txt_1;
     public javax.swing.JTextField txt_2;
     public javax.swing.JTextField txt_3;
+    public javax.swing.JTextField txt_4;
     // End of variables declaration//GEN-END:variables
 }
