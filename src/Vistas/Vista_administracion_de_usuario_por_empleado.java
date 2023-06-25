@@ -490,6 +490,14 @@ public class Vista_administracion_de_usuario_por_empleado extends javax.swing.JF
     }//GEN-LAST:event_txt_6ActionPerformed
 
     private void btnEliminar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar2ActionPerformed
+        String codigo_usuario = txt_1.getText();
+    
+    try {
+        controlador_usuario.eliminar_usuario(codigo_usuario);
+        limpiarGUI();
+    } catch (Exception e) {
+
+    }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminar2ActionPerformed
 

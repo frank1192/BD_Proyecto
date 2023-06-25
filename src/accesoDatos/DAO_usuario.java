@@ -103,4 +103,22 @@ public class DAO_usuario {
         catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
         
     }
+    
+    public void eliminar_usuario(String codigo_usuario) {
+    String sql_eliminar = "DELETE FROM usuario WHERE codigo_usuario = '" + codigo_usuario + "'";
+
+    try {
+        Statement sentencia = this.conexion.createStatement();
+        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+        
+        System.out.println("Eliminación exitosa");
+    } catch (SQLException e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+    } catch (Exception e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+        }
+    }
+
 }

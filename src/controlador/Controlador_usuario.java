@@ -45,4 +45,9 @@ public class Controlador_usuario {
         dao_usuario.actualizar_usuario(modelo_usuario, columna, valor);
       
     }
+    
+    public void eliminar_usuario(String codigo_usuario) {
+        dao_usuario.eliminar_usuario(codigo_usuario);
+    }
+
 }
