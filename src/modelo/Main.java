@@ -42,9 +42,9 @@ public class Main {
 
 //        Vista_descarga_de_libro XD = new Vista_descarga_de_libro();
 
-        Vista_solicitud_de_libro XD = new Vista_solicitud_de_libro();
+//        Vista_solicitud_de_libro XD = new Vista_solicitud_de_libro();
 
-        XD.setVisible(true);
+//        XD.setVisible(true);
 
 
 //        String cadena = "- Hola\n- Mundo\n- Ejemplo\n- ZD\n- FF";
@@ -67,14 +67,16 @@ public class Main {
 
 
 //        VistaIniciarSesion view = new VistaIniciarSesion ();
-//        ModeloIniciarSesion model = new ModeloIniciarSesion("Usuario", "Contraseña");
-//        InterfaceIniciarSesionDAO daoAministrador = new IniciarSesion_DAO();
-//        ControladorIniciarSesion ctrl = new ControladorIniciarSesion (view,model, daoAministrador);
-
-//        ctrl.iniciar();
-
+////        ModeloIniciarSesion model = new ModeloIniciarSesion("Usuario", "Contraseña");
+////        InterfaceIniciarSesionDAO daoAministrador = new IniciarSesion_DAO();
+////        ControladorIniciarSesion ctrl = new ControladorIniciarSesion (view,model, daoAministrador);
+////        ctrl.iniciar();
 //        view.setVisible(true);
 
+
+        Vista_ventana_principal XD = new Vista_ventana_principal();
+        XD.setVisible(true);
+        
     }
     
 }

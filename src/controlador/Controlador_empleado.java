@@ -26,6 +26,7 @@ public class Controlador_empleado {
         modelo_empleado.setIdentificacion_empleado(identificacion_empleado);
         modelo_empleado.setNombre_empleado(nombre_empleado);
         modelo_empleado.setCargo_empleado(cargo_empleado);
+//        modelo_empleado.setContrasenya_empleado(contrasenya_empleado);
         
         dao_libro.insertar_empleado(modelo_empleado);
     }

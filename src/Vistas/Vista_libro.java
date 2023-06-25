@@ -63,6 +63,11 @@ public class Vista_libro extends javax.swing.JFrame {
         btnFinalizar.setText("Finalizar");
         btnFinalizar.setBorderPainted(false);
         btnFinalizar.setFocusable(false);
+        btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarActionPerformed(evt);
+            }
+        });
 
         txt_3.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
@@ -334,6 +339,10 @@ public class Vista_libro extends javax.swing.JFrame {
     private void txt_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_7ActionPerformed
+
+    private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnFinalizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

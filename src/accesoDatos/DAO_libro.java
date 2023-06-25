@@ -86,5 +86,32 @@ public class DAO_libro {
         
     }
     
-    
+    public String seleccionar_libros_por_titulo(String titulo_libro){
+
+//        Modelo_libros_y_autores modelo_libros_y_autores = new Modelo_libros_y_autores();
+        
+        String lista_de_autores = "";
+        
+        String sql_select;
+        sql_select="SELECT "
+                + "isbn_libro "
+                + "FROM libro WHERE titulo_libro = '" + titulo_libro +  "'";
+        
+        try{
+
+            Statement sentencia = this.conexion.createStatement();
+            ResultSet seleccion = sentencia.executeQuery(sql_select);
+            
+            while (seleccion.next()){
+               lista_de_autores = lista_de_autores + "- " + seleccion.getString(1) + "\n";/*modelo_libros_y_autores.setIsbn_libro_lya(seleccion.getString(1));*/
+            }
+            
+            System.out.println("Seleccion exitosa");
+           
+            return lista_de_autores/*modelo_libros_y_autores*/;
+        }
+        catch(SQLException e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        
+    }    
 }

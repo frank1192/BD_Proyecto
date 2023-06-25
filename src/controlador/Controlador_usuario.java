@@ -28,6 +28,7 @@ public class Controlador_usuario {
         modelo_usuario.setDireccion_usuario(direccion_usuario);
         modelo_usuario.setTelefono_usuario(telefono_usuario);
         modelo_usuario.setE_mail_usuario(e_mail_usuario);
+//        modelo_usuario.setContrasenya_usuario(contrasenya_usuario);
         
         dao_usuario.insertar_usuario(modelo_usuario);
     }
@@ -37,5 +38,11 @@ public class Controlador_usuario {
         Modelo_usuario modelo_usuario = dao_usuario.seleccionar_usuario(codigo_usuario);
       
         return modelo_usuario;
+    }
+    
+    public void modificar_usuario(Modelo_usuario modelo_usuario, String columna, String valor){
+        
+        dao_usuario.actualizar_usuario(modelo_usuario, columna, valor);
+      
     }
 }

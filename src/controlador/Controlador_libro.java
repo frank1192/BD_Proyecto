@@ -40,4 +40,11 @@ public class Controlador_libro {
       
         return modelo_libro;
     }
+    
+    public String consultar_libro_por_titulo(String isbn_libro){
+        
+        String libros = dao_libro.seleccionar_libros_por_titulo(isbn_libro);
+      
+        return libros;
+    }
 }

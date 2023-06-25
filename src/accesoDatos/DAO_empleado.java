@@ -29,8 +29,9 @@ public class DAO_empleado {
         String sql_guardar;
         sql_guardar="INSERT INTO empleado VALUES ('" +
                 modelo_empleado.getIdentificacion_empleado()+ "', '" + 
-                modelo_empleado.getNombre_empleado() + "', '" + 
-                modelo_empleado.getCargo_empleado() + "')";
+                modelo_empleado.getNombre_empleado() + "', '" +
+                modelo_empleado.getCargo_empleado() + "', '" + 
+                modelo_empleado.getContrasenya_empleado() + "')";
         
         try{
             Statement sentencia = this.conexion.createStatement();
@@ -51,7 +52,8 @@ public class DAO_empleado {
         sql_select="SELECT "
                 + "identificacion_empleado, "
                 + "nombre_empleado, "
-                + "identificacion_empleado "
+                + "identificacion_empleado, "
+                + "contrasenya_empleado "
                 + "FROM empleado WHERE identificacion_empleado = '" + identificacion_empleado +  "'";
         
         try{
@@ -63,6 +65,7 @@ public class DAO_empleado {
                modelo_empleado.setIdentificacion_empleado(seleccion.getString(1));
                modelo_empleado.setNombre_empleado(seleccion.getString(2));
                modelo_empleado.setCargo_empleado(seleccion.getString(3));
+               modelo_empleado.setContrasenya_empleado(seleccion.getString(4));
             }
             
             System.out.println("Seleccion exitosa");

@@ -16,6 +16,7 @@ public class Modelo_usuario {
     private String direccion_usuario;
     private String telefono_usuario;
     private String e_mail_usuario;
+    private String contrasenya_usuario;
 
     public String getCodigo_usuario() {
         return codigo_usuario;
@@ -37,6 +38,10 @@ public class Modelo_usuario {
         return e_mail_usuario;
     }
 
+    public String getContrasenya_usuario() {
+        return contrasenya_usuario;
+    }
+
     public void setCodigo_usuario(String codigo_usuario) {
         this.codigo_usuario = codigo_usuario;
     }
@@ -55,6 +60,10 @@ public class Modelo_usuario {
 
     public void setE_mail_usuario(String e_mail_usuario) {
         this.e_mail_usuario = e_mail_usuario;
+    }
+            
+    public void setContrasenya_usuario(String contrasenya_usuario) {
+        this.contrasenya_usuario = contrasenya_usuario;
     }
     
 }

@@ -31,8 +31,9 @@ public class DAO_usuario {
                 modelo_usuario.getCodigo_usuario()+ "', '" + 
                 modelo_usuario.getNombre_usuario() + "', '" + 
                 modelo_usuario.getDireccion_usuario()+ "', '" + 
-                modelo_usuario.getTelefono_usuario()+ "', '" + 
-                modelo_usuario.getE_mail_usuario() + "')";
+                modelo_usuario.getTelefono_usuario()+ "', '" +
+                modelo_usuario.getE_mail_usuario()+ "', '" +
+                modelo_usuario.getContrasenya_usuario() + "')";
         
         try{
             Statement sentencia = this.conexion.createStatement();
@@ -55,7 +56,8 @@ public class DAO_usuario {
                 + "nombre_usuario, "
                 + "direccion_usuario, "
                 + "telefono_usuario, "
-                + "e_mail_usuario "
+                + "e_mail_usuario, "
+                + "contrasenya_usuario "
                 + "FROM usuario WHERE codigo_usuario = '" + codigo_usuario +  "'";
         
         try{
@@ -64,11 +66,12 @@ public class DAO_usuario {
             ResultSet seleccion = sentencia.executeQuery(sql_select);
             
             while (seleccion.next()){
-               modelo_usuario.setCodigo_usuario(seleccion.getString(1));
-               modelo_usuario.setNombre_usuario(seleccion.getString(2));
-               modelo_usuario.setDireccion_usuario(seleccion.getString(3));
-               modelo_usuario.setTelefono_usuario(seleccion.getString(4));
-               modelo_usuario.setE_mail_usuario(seleccion.getString(5));
+                modelo_usuario.setCodigo_usuario(seleccion.getString(1));
+                modelo_usuario.setNombre_usuario(seleccion.getString(2));
+                modelo_usuario.setDireccion_usuario(seleccion.getString(3));
+                modelo_usuario.setTelefono_usuario(seleccion.getString(4));
+                modelo_usuario.setE_mail_usuario(seleccion.getString(5));
+                modelo_usuario.setContrasenya_usuario(seleccion.getString(6));
             }
             
             System.out.println("Seleccion exitosa");
@@ -80,5 +83,24 @@ public class DAO_usuario {
         
     }
     
-    
+    public void actualizar_usuario(Modelo_usuario modelo_usuario, String columna, String valor){
+
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        sql_guardar="UPDATE usuario \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE codigo_usuario = '" + modelo_usuario.getCodigo_usuario() +"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
+        }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        
+    }
 }
