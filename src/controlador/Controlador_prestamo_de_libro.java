@@ -41,4 +41,10 @@ public class Controlador_prestamo_de_libro {
       
         return modelo_prestamo_de_libro;
     }
+    
+    public void eliminar_prestamo_de_libro(String numero_consecutivo_prestamo) {
+    dao_prestamo_de_libro.eliminar_prestamo_de_libro(numero_consecutivo_prestamo);
+    }
+
+    
 }

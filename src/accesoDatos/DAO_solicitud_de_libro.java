@@ -82,6 +82,24 @@ public class DAO_solicitud_de_libro {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
+    public void eliminar_solicitud_de_libro(String numero_consecutivo_solicitud) {
+    String sql_eliminar = "DELETE FROM solicitud_de_libro WHERE numero_consecutivo_solicitud = '" + numero_consecutivo_solicitud + "'";
+
+    try {
+        Statement sentencia = this.conexion.createStatement();
+        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+        if (numeroFilas > 0) {
+            System.out.println("Eliminación exitosa");
+        } else {
+            System.out.println("No se encontró ningún registro para eliminar");
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al intentar eliminar el registro");
+        System.out.println(e);
+        }
+    }
+
     
     
 }

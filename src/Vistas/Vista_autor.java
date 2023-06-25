@@ -288,6 +288,14 @@ public class Vista_autor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String codigo_autor = txt_1.getText();
+
+    try {
+        controlador_autor.eliminar_autor(codigo_autor);
+        limpiarGUI();
+    } catch (Exception e) {
+
+    }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 

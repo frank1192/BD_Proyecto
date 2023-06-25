@@ -81,4 +81,21 @@ public class DAO_multa {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
+    public void eliminar_multa(String codigo_multa) {
+    String sql_eliminar = "DELETE FROM multa WHERE codigo_multa = '" + codigo_multa + "'";
+
+    try {
+        Statement sentencia = this.conexion.createStatement();
+        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+        System.out.println("Eliminación exitosa");
+    } catch (SQLException e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+    } catch (Exception e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+        }
+    }
+
 }

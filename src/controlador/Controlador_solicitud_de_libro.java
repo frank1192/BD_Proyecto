@@ -39,4 +39,8 @@ public class Controlador_solicitud_de_libro {
       
         return modelo_solicitud_de_libro;
     }
+    public void eliminar_solicitud_de_libro(String numero_consecutivo_solicitud) {
+    dao_solicitud_de_libro.eliminar_solicitud_de_libro(numero_consecutivo_solicitud);
+    }
+
 }

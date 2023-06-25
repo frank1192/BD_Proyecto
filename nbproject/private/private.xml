@@ -6,27 +6,30 @@
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/accesoDatos/DAO_area_de_conocimiento.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/controlador/Controlador_area_de_conocimiento.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_empleado.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/accesoDatos/FachadaBD.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_solicitud_de_libro.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_estudiante.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/accesoDatos/DAO_usuario.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/accesoDatos/DAO_estudiante.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_descarga_de_libro.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/controlador/Controlador_libros_y_autores.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_usuario.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/modelo/Modelo_usuario.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_administracion_de_usuario_por_empleado.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/controlador/Controlador_usuario.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/controlador/Controlador_area_de_interes.java</file>
-            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/accesoDatos/FachadaBD.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/accesoDatos/DAO_descarga_de_libro.java</file>
+            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_ventana_principal.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_solicitud_de_libro_usuario.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/controlador/Controlador_estudiante.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_multa.java</file>
-            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_solicitud_de_libro.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_autor.java</file>
-            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/accesoDatos/DAO_usuario.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_area_de_conocimiento.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_area_de_interes.java</file>
-            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/accesoDatos/DAO_estudiante.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_administracion_usuario.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/accesoDatos/DAO_area_de_interes.java</file>
-            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_descarga_de_libro.java</file>
-            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/controlador/Controlador_libros_y_autores.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/controlador/Controlador_multa.java</file>
             <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/controlador/Controlador_editorial.java</file>
-            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/Vistas/Vista_usuario.java</file>
-            <file>file:/C:/Users/Franklin%20Aguirre/Desktop/BD_Proyecto/src/modelo/Modelo_usuario.java</file>
         </group>
     </open-files>
 </project-private>

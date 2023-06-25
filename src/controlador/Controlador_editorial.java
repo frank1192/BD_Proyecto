@@ -44,4 +44,12 @@ public class Controlador_editorial  {
       
         return Modelo_editorial;
     }
+    
+    public void eliminar_editorial(String codigo_editorial) {
+    editorial_DAO.eliminar_editorial(codigo_editorial);
+    }
+
+
+
+    
 }

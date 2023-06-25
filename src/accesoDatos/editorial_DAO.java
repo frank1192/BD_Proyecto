@@ -75,4 +75,24 @@ public class editorial_DAO {
         return null;
     }
     
+    public void eliminar_editorial(String codigo_editorial) {
+    String sql_eliminar = "DELETE FROM editorial WHERE codigo_editorial = '" + codigo_editorial + "'";
+    
+    try {
+        Statement sentencia = this.conexion.createStatement();
+        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+        
+        if (numeroFilas > 0) {
+            System.out.println("Se eliminó el registro correctamente");
+        } else {
+            System.out.println("No se encontró el registro con el código editorial especificado");
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al intentar eliminar Editorial");
+        System.out.println(e);
+    } 
+    }
+
+    
+
 }

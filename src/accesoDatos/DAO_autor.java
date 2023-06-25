@@ -79,5 +79,26 @@ public class DAO_autor {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
+    public void eliminar_autor(String codigo_autor) {
+    String sql_eliminar = "DELETE FROM autor WHERE codigo_autor = '" + codigo_autor + "'";
+    
+    try {
+        Statement sentencia = this.conexion.createStatement();
+        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+        
+        if (numeroFilas > 0) {
+            System.out.println("Eliminación exitosa");
+        } else {
+            System.out.println("No se encontró el autor con el código especificado");
+        }
+    } catch (SQLException e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+    } catch (Exception e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+        }
+    }
+
     
 }

@@ -38,4 +38,7 @@ public class Controlador_multa {
       
         return modelo_multa;
     }
+    public void eliminar_multa(String codigo_multa) {
+    dao_libro.eliminar_multa(codigo_multa);
+    }
 }

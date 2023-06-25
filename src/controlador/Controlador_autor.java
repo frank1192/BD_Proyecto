@@ -38,4 +38,10 @@ public class Controlador_autor {
       
         return modelo_autor;
     }
+    
+    public void eliminar_autor(String codigo_autor) {
+    dao_autor.eliminar_autor(codigo_autor);
+    }
+
+    
 }

@@ -79,6 +79,27 @@ public class DAO_descarga_de_libro {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
+    public void eliminar_descarga_de_libro(String ip_descarga) {
+    String sql_delete = "DELETE FROM descarga_de_libro WHERE ip_descarga = '" + ip_descarga + "'";
+
+    try {
+        Statement sentencia = this.conexion.createStatement();
+        int numeroFilas = sentencia.executeUpdate(sql_delete);
+
+        if (numeroFilas > 0) {
+            System.out.println("Eliminación exitosa");
+        } else {
+            System.out.println("No se encontró el registro a eliminar");
+        }
+    } catch (SQLException e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+    } catch (Exception e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+        }
+    }
+
     
     
 }

@@ -47,4 +47,9 @@ public class Controlador_libro {
       
         return libros;
     }
+    
+    public void eliminar_libro(String isbn_libro) {
+    dao_libro.eliminar_libro(isbn_libro);
+    }
+
 }

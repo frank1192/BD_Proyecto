@@ -286,6 +286,15 @@ public class Vista_solicitud_de_libro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    String numero_consecutivo_solicitud = txt_1.getText();
+    
+    try {
+        controlador_solicitud_de_libro.eliminar_solicitud_de_libro(numero_consecutivo_solicitud);
+        limpiarGUI();
+
+    } catch (Exception e) {
+
+    }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 

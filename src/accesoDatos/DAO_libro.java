@@ -114,4 +114,24 @@ public class DAO_libro {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }    
+        public void eliminar_libro(String isbn_libro) {
+    String sql_eliminar = "DELETE FROM libro WHERE isbn_libro = '" + isbn_libro + "'";
+
+    try {
+        Statement sentencia = this.conexion.createStatement();
+        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+        if (numeroFilas > 0) {
+            System.out.println("Eliminación exitosa");
+        } else {
+            System.out.println("No se encontró ningún libro con el ISBN especificado");
+        }
+    } catch (SQLException e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+    } catch (Exception e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+        }
+    }
 }

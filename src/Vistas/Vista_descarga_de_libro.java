@@ -259,6 +259,15 @@ public class Vista_descarga_de_libro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String ip_descarga = txt_1.getText();
+    try {
+        controlador_descarga_de_libro.eliminar_descarga(ip_descarga);
+        limpiarGUI();
+
+    } catch (Exception e) {
+
+
+    }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
