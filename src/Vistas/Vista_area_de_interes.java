@@ -52,6 +52,11 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
         btnFinalizar.setText("Finalizar");
         btnFinalizar.setBorderPainted(false);
         btnFinalizar.setFocusable(false);
+        btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarActionPerformed(evt);
+            }
+        });
 
         lbl_2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         lbl_2.setText("Nombre:");
@@ -223,6 +228,11 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFinalizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

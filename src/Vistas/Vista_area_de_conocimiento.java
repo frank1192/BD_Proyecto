@@ -51,6 +51,11 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
         btnFinalizar.setText("Finalizar");
         btnFinalizar.setBorderPainted(false);
         btnFinalizar.setFocusable(false);
+        btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarActionPerformed(evt);
+            }
+        });
 
         txtA_1.setColumns(20);
         txtA_1.setRows(5);
@@ -227,6 +232,11 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
+        dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFinalizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

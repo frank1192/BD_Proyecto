@@ -16,9 +16,9 @@ public class FachadaBD {
         Connection conexion =null;
         
         FachadaBD(){
-            url="jdbc:postgresql://localhost:5432/Proyecto_BD";
+            url="jdbc:postgresql://localhost:5432/tablas_y_registros";
             usuario="postgres";
-            password="passwordPSQL1";
+            password="$PGadmin$";
         }
         
         public Connection openConnection(){
