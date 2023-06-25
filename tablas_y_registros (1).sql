@@ -176,7 +176,7 @@ CREATE TABLE descarga_de_libro (
 	hora_deacarga TIME,
 	PRIMARY KEY (ip_descarga),
 	FOREIGN KEY (codigo_usuario_descarga) REFERENCES usuario(codigo_usuario),
-	FOREIGN KEY (isbn_libro_digital_descarga) REFERENCES libro_digital(isbn_libro_digital));
+	
 
 -- Solicitud de libro
 CREATE SEQUENCE secuencia_de_solicitud
