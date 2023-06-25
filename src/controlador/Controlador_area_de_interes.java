@@ -35,4 +35,10 @@ public class Controlador_area_de_interes {
       
         return modelo_area_de_interes;
     }
+    
+    public void eliminar_area_de_interes(String codigo_area_de_interes) {
+        dao_area_de_interes.eliminar_area_de_interes(codigo_area_de_interes);
+    
+    }
+
 }

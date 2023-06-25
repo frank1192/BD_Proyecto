@@ -75,5 +75,25 @@ public class DAO_area_de_conocimiento {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
+    public void eliminar_area_de_conocimiento(String codigo_area_de_conocimiento) {
+    String sql_eliminar = "DELETE FROM area_de_conocimiento WHERE codigo_area_de_conocimiento = '" + codigo_area_de_conocimiento + "'";
+
+    try {
+        Statement sentencia = this.conexion.createStatement();
+        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+        if (numeroFilas > 0) {
+            System.out.println("Eliminación exitosa");
+        } else {
+            System.out.println("No se encontró el registro a eliminar");
+            }
+    } catch (SQLException e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+    } catch (Exception e) {
+        System.out.println("Eliminación fallida");
+        System.out.println(e);
+        }
+    }
     
 }

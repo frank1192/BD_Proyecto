@@ -226,7 +226,16 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+         String codigo_area_de_interes = txt_1.getText();
+    
+    try {
+        controlador_area_de_interes.eliminar_area_de_interes(codigo_area_de_interes);
+
+        limpiarGUI();
+    }
+    catch (Exception e){
+
+    }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed

@@ -37,4 +37,10 @@ public class Controlador_area_de_conocimiento {
       
         return modelo_area_de_conocimiento;
     }
+    
+    public void eliminar_area_de_conocimiento(String codigo_area_de_conocimiento) {
+    dao_area_de_conocimiento.eliminar_area_de_conocimiento(codigo_area_de_conocimiento);
+    System.out.println("Área de conocimiento eliminada exitosamente");
+    }
+
 }

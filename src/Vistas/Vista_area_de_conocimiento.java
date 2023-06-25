@@ -230,7 +230,15 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+    String codigo_area_de_conocimiento = txt_1.getText();
+    
+    try {
+        controlador_area_de_conocimiento.eliminar_area_de_conocimiento(codigo_area_de_conocimiento);
+        limpiarGUI();
+        // Display success message or perform any additional actions
+    } catch (Exception e) {
+    }
+// TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
