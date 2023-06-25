@@ -40,7 +40,6 @@ public class Vista_inicio_sesion_empleado extends javax.swing.JFrame {
         txt_2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btn_2 = new javax.swing.JButton();
-        btn_3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -89,14 +88,6 @@ public class Vista_inicio_sesion_empleado extends javax.swing.JFrame {
             }
         });
 
-        btn_3.setBackground(new java.awt.Color(255, 0, 51));
-        btn_3.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        btn_3.setForeground(new java.awt.Color(255, 255, 255));
-        btn_3.setText("Resgistrarse");
-        btn_3.setToolTipText("");
-        btn_3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_3.setBorderPainted(false);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,9 +110,7 @@ public class Vista_inicio_sesion_empleado extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(btn_3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
+                                .addGap(227, 227, 227)
                                 .addComponent(btn_1, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -143,8 +132,7 @@ public class Vista_inicio_sesion_empleado extends javax.swing.JFrame {
                 .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 
@@ -186,7 +174,6 @@ public class Vista_inicio_sesion_empleado extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_1;
     public javax.swing.JButton btn_2;
-    public javax.swing.JButton btn_3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

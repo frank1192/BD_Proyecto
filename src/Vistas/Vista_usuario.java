@@ -332,7 +332,7 @@ public class Vista_usuario extends javax.swing.JFrame {
 //        descripcion = txtA_descripcion.getText();getText
        
         try{
-            controlador_usuario.agregar_usuario(codigo_usuario, nombre_usuario, direccion_usuario, telefono_usuario, e_mail_usuario);
+            controlador_usuario.agregar_usuario(codigo_usuario, nombre_usuario, direccion_usuario, telefono_usuario, e_mail_usuario, "");
            
 //            if (!"".equals(lista_de_autores)){
 //                controlador_libros_y_autores.agregar_autores_a_libro(codigo_usuario, lista_de_autores);

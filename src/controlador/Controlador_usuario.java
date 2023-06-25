@@ -20,7 +20,7 @@ public class Controlador_usuario {
         dao_usuario = new DAO_usuario();           
     }
     
-    public void agregar_usuario(String codigo_usuario, String nombre_usuario, String direccion_usuario, String telefono_usuario, String e_mail_usuario){
+    public void agregar_usuario(String codigo_usuario, String nombre_usuario, String direccion_usuario, String telefono_usuario, String e_mail_usuario, String contrasenya_usuario){
         Modelo_usuario modelo_usuario = new Modelo_usuario();        
 
         modelo_usuario.setCodigo_usuario(codigo_usuario);
@@ -28,7 +28,7 @@ public class Controlador_usuario {
         modelo_usuario.setDireccion_usuario(direccion_usuario);
         modelo_usuario.setTelefono_usuario(telefono_usuario);
         modelo_usuario.setE_mail_usuario(e_mail_usuario);
-//        modelo_usuario.setContrasenya_usuario(contrasenya_usuario);
+        modelo_usuario.setContrasenya_usuario(contrasenya_usuario);
         
         dao_usuario.insertar_usuario(modelo_usuario);
     }
