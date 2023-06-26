@@ -45,4 +45,8 @@ public class Controlador_libro_fisico {
         dao_libro_fisico.actualizar_libro_fisico(modelo_libro_fisico, columna, valor);
       
     }
+    
+    public void eliminar_libro_fisico(String isbn_libro_ejemplar, String numero_ejemplar) {
+        dao_libro_fisico.eliminar_libro_fisico(isbn_libro_ejemplar, numero_ejemplar);
+    }
 }

@@ -332,7 +332,7 @@ public class Vista_prestamo_de_libro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-            String numero_consecutivo_prestamo = txt_1.getText();
+    String numero_consecutivo_prestamo = txt_1.getText();
     
     try {
         controlador_prestamo_de_libro.eliminar_prestamo_de_libro(numero_consecutivo_prestamo);

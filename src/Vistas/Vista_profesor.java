@@ -248,7 +248,17 @@ public class Vista_profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+    String codigo_usuario_profesor = txt_1.getText();
+    
+    try {
+        Controlador_profesores_y_areas controlador_profesores_y_areas = new Controlador_profesores_y_areas();
+        controlador_profesores_y_areas.eliminar_profesores_y_areas_p(codigo_usuario_profesor);
+        controlador_profesor.eliminar_profesor(codigo_usuario_profesor);
+        limpiarGUI();
+
+    } catch (Exception e) {
+
+    }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed

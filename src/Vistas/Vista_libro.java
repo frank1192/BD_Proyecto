@@ -2,6 +2,7 @@
 package Vistas;
 
 import controlador.Controlador_libro;
+import controlador.Controlador_libro_fisico;
 import javax.swing.JOptionPane;
 import modelo.Modelo_libro;
 import controlador.Controlador_libros_y_autores;
@@ -369,8 +370,10 @@ public class Vista_libro extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         String isbn_libro = txt_1.getText();
     
-    try {
-
+    try { 
+        
+        Controlador_libros_y_autores controlador_libros_y_autores = new Controlador_libros_y_autores();
+        controlador_libros_y_autores.eliminar_libros_y_autores_l(isbn_libro);
         controlador_libro.eliminar_libro(isbn_libro);
 
         limpiarGUI();

@@ -96,4 +96,22 @@ public class DAO_empleado {
         catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
         catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
     }  
+    
+    public void eliminar_empleado(String identificacion_empleado  ) {
+        String sql_eliminar = "DELETE FROM  empleado  WHERE identificacion_empleado = '" +  identificacion_empleado  + "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro  del empleado especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar el empleado");
+            System.out.println(e);
+        } 
+    }
 }

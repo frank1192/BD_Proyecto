@@ -296,6 +296,9 @@ public class Vista_autor extends javax.swing.JFrame {
         String codigo_autor = txt_1.getText();
 
     try {
+        
+        Controlador_libros_y_autores controlador_libros_y_autores = new Controlador_libros_y_autores();
+        controlador_libros_y_autores.eliminar_libros_y_autores_a(codigo_autor);
         controlador_autor.eliminar_autor(codigo_autor);
         limpiarGUI();
     } catch (Exception e) {

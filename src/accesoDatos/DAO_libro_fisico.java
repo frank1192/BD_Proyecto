@@ -109,5 +109,23 @@ public class DAO_libro_fisico {
         
     }
     
+
+    public void eliminar_libro_fisico(String isbn_libro_ejemplar, String numero_ejemplar ) {
+        String sql_eliminar = "DELETE FROM libro_fisico WHERE isbn_libro_ejemplar = '" + isbn_libro_ejemplar + "' AND numero_ejemplar ='"+ numero_ejemplar  + "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro con el isbn del libro y numero de ejemplar especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar el isbn del libro y numero de ejemplar");
+            System.out.println(e);
+        } 
+    }
     
 }

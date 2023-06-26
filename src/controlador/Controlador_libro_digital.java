@@ -41,6 +41,10 @@ public class Controlador_libro_digital {
     public void modificar_libro_digital(Modelo_libro_digital modelo_libro_digital, String columna, String valor){
         
         dao_libro_digital.actualizar_libro_digital(modelo_libro_digital, columna, valor);
-      
+
+    }
+    
+    public void eliminar_libro_digital(String isbn_libro_digital) {
+        dao_libro_digital.eliminar_libro_digital(isbn_libro_digital);
     }
 }

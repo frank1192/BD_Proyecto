@@ -97,5 +97,21 @@ public class DAO_libro_digital {
         catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
     } 
     
-    
+    public void eliminar_libro_digital(String isbn_libro_digital   ) {
+        String sql_eliminar = "DELETE FROM  libro_digital  WHERE isbn_libro_digital = '" +  isbn_libro_digital  + "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro con el libro digital especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar el xxx");
+            System.out.println(e);
+        } 
+    }
 }

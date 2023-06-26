@@ -101,6 +101,23 @@ public class DAO_descarga_de_libro {
         }
     }
 
-    
+    public void eliminar_descarga_de_libro(String codigo_usuario_descarga, String isbn_libro_digital_descarga ) {
+        String sql_eliminar = "DELETE FROM  descarga_de_libro  WHERE codigo_usuario_descarga = '" + 
+        codigo_usuario_descarga  + "' AND isbn_libro_digital_descarga ='"+  isbn_libro_digital_descarga + "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro  del libro de descarga y usuario especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar el libro de descarga y usuario");
+            System.out.println(e);
+        } 
+    }    
     
 }

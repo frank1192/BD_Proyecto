@@ -86,4 +86,13 @@ public class Controlador_libros_y_autores {
         String lista_de_autores = dao_libros_y_autores.seleccionar_autores_de_libro(isbn_libro_lya); //        Modelo_libros_y_autores modelo_libros_y_autores = dao_libros_y_autores.seleccionar_autores_de_libro(isbn_libro_lya);
         return lista_de_autores; //        return modelo_libros_y_autores;
     }
+    
+    
+    public void eliminar_libros_y_autores_l(String codigo_usuario_profesor_pya) {
+        dao_libros_y_autores.eliminar_libros_y_autores_l(codigo_usuario_profesor_pya);
+    }
+    
+    public void eliminar_libros_y_autores_a(String codigo_area_de_interes_pya) {
+        dao_libros_y_autores.eliminar_libros_y_autores_a(codigo_area_de_interes_pya);
+    }
 }

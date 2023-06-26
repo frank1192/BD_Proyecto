@@ -215,7 +215,16 @@ public class Vista_estudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+    String codigo_estudiante = txt_1.getText();
+    
+    try {
+        controlador_estudiante.eliminar_estudiante(codigo_estudiante);
+        limpiarGUI();
+
+    } catch (Exception e) {
+
+    }
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed

@@ -40,6 +40,9 @@ public class Controlador_estudiante {
     public void modificar_estudiante(Modelo_estudiante modelo_estudiante, String columna, String valor){
         
         dao_estudiante.actualizar_estudiante(modelo_estudiante, columna, valor);
-      
+    }
+    
+    public void eliminar_estudiante(String codigo_estudiante) {
+        dao_estudiante.eliminar_estudiante(codigo_estudiante);
     }
 }

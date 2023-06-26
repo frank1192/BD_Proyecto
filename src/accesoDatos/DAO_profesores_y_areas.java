@@ -97,5 +97,40 @@ public class DAO_profesores_y_areas {
         
     }
     
-    
+public void eliminar_profesores_y_areas_p(String codigo_usuario_profesor_pya) {
+        String sql_eliminar = "DELETE FROM profesores_y_areas WHERE codigo_usuario_profesor_pya = '" + codigo_usuario_profesor_pya+ "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro con el código de profesor y area de interes especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar profesores y areas ");
+            System.out.println(e);
+        } 
+    }
+
+    public void eliminar_profesores_y_areas_a(String codigo_area_de_interes_pya ) {
+        String sql_eliminar = "DELETE FROM profesores_y_areas WHERE codigo_area_de_interes_pya ='"+ codigo_area_de_interes_pya  + "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro con el código de profesor y area de interes especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar profesores y areas ");
+            System.out.println(e);
+        } 
+    }
+
 }

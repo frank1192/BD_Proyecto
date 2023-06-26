@@ -94,5 +94,24 @@ public class DAO_profesor {
         catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
         
     }    
+
+    public void eliminar_profesor(String codigo_usuario_profesor  ) {
+        String sql_eliminar = " DELETE FROM profesor WHERE codigo_usuario_profesor = '" + codigo_usuario_profesor   + "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro con el código de profesor especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar profesor");
+            System.out.println(e);
+        } 
+    }
+
     
 }

@@ -2,6 +2,8 @@
 package Vistas;
 
 import controlador.Controlador_area_de_conocimiento;
+import controlador.Controlador_libros_y_autores;
+import controlador.Controlador_profesores_y_areas;
 import javax.swing.JOptionPane;
 import modelo.Modelo_area_de_conocimiento;
 

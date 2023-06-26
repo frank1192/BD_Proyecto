@@ -101,7 +101,40 @@ public class DAO_libros_y_autores {
         
     }
 
+    public void eliminar_libros_y_autores_a(String codigo_autor_lya) {
+        String sql_eliminar = "DELETE FROM libros_y_autores WHERE codigo_autor_lya = '" + codigo_autor_lya + "'";
 
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro con el código de autor y isbn del libro especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar  autor y isbn del libro");
+            System.out.println(e);
+        } 
+    }
     
-    
+    public void eliminar_libros_y_autores_l(String isbn_libro_lya ) {
+        String sql_eliminar = "DELETE FROM libros_y_autores WHERE isbn_libro_lya ='"+ isbn_libro_lya  + "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro con el código de autor y isbn del libro especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar  autor y isbn del libro");
+            System.out.println(e);
+        } 
+    }
+
 }

@@ -93,4 +93,24 @@ public class DAO_estudiante {
         catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
         catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
     }   
+    
+    
+    public void eliminar_estudiante(String codigo_usuario_estudiante  ) {
+        String sql_eliminar = "DELETE FROM  estudiante  WHERE codigo_usuario_estudiante = '" + codigo_usuario_estudiante  + "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro  del estudiante especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar el estudiante");
+            System.out.println(e);
+        } 
+    }
+    
 }

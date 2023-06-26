@@ -211,7 +211,16 @@ public class Vista_empleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+    String identificacion_empleado = txt_1.getText();
+    
+    try {
+        controlador_empleado.eliminar_empleado(identificacion_empleado);
+        limpiarGUI();
+
+    } catch (Exception e) {
+
+    }
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed

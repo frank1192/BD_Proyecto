@@ -14,10 +14,10 @@ import accesoDatos.DAO_empleado;
  */
 public class Controlador_empleado {
             
-    DAO_empleado dao_libro;
+    DAO_empleado dao_empleado;
     
     public Controlador_empleado(){
-        dao_libro = new DAO_empleado();           
+        dao_empleado = new DAO_empleado();           
     }
     
     public void agregar_empleado(String identificacion_empleado, String nombre_empleado, String cargo_empleado){
@@ -28,19 +28,23 @@ public class Controlador_empleado {
         modelo_empleado.setCargo_empleado(cargo_empleado);
 //        modelo_empleado.setContrasenya_empleado(contrasenya_empleado);
         
-        dao_libro.insertar_empleado(modelo_empleado);
+        dao_empleado.insertar_empleado(modelo_empleado);
     }
 
     public Modelo_empleado consultar_empleado(String identificacion_empleado){
         
-        Modelo_empleado modelo_empleado = dao_libro.seleccionar_empleado(identificacion_empleado);
+        Modelo_empleado modelo_empleado = dao_empleado.seleccionar_empleado(identificacion_empleado);
       
         return modelo_empleado;
     }
     
     public void modificar_empleado(Modelo_empleado modelo_empleado, String columna, String valor){
         
-        dao_libro.actualizar_empleado(modelo_empleado, columna, valor);
+        dao_empleado.actualizar_empleado(modelo_empleado, columna, valor);
       
+    }
+    
+    public void eliminar_empleado(String identificacion_empleado) {
+        dao_empleado.eliminar_empleado(identificacion_empleado);
     }
 }

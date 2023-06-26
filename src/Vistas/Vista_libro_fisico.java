@@ -272,7 +272,16 @@ public class Vista_libro_fisico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+    String isbn_libro_ejemplar = txt_1.getText();
+    String numero_ejemplar = txt_2.getText();
+    
+    try {
+        controlador_libro_fisico.eliminar_libro_fisico(isbn_libro_ejemplar, numero_ejemplar);
+        limpiarGUI();
+
+    } catch (Exception e) {
+
+    }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txt_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_5ActionPerformed

@@ -231,9 +231,11 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-         String codigo_area_de_interes = txt_1.getText();
+    String codigo_area_de_interes = txt_1.getText();
     
     try {
+        Controlador_profesores_y_areas controlador_profesores_y_areas = new Controlador_profesores_y_areas();
+        controlador_profesores_y_areas.eliminar_profesores_y_areas_a(codigo_area_de_interes);
         controlador_area_de_interes.eliminar_area_de_interes(codigo_area_de_interes);
 
         limpiarGUI();

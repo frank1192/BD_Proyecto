@@ -42,4 +42,8 @@ public class Controlador_profesor {
         dao_profesor.actualizar_profesor(modelo_profesor, columna, valor);
       
     }
+    
+    public void eliminar_profesor(String codigo_usuario_profesor) {
+        dao_profesor.eliminar_profesor(codigo_usuario_profesor);
+    }
 }
