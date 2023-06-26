@@ -113,25 +113,46 @@ public class DAO_libro {
         catch(SQLException e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
-    }    
-        public void eliminar_libro(String isbn_libro) {
+    }
+
+    public void actualizar_libro(Modelo_libro modelo_libro, String columna, String valor){
+
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        sql_guardar="UPDATE libro \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE isbn_libro = '" + modelo_libro.getIsbn_libro()+"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
+        }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+    } 
+    
+    public void eliminar_libro(String isbn_libro) {
     String sql_eliminar = "DELETE FROM libro WHERE isbn_libro = '" + isbn_libro + "'";
 
-    try {
-        Statement sentencia = this.conexion.createStatement();
-        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
 
-        if (numeroFilas > 0) {
-            System.out.println("Eliminación exitosa");
-        } else {
-            System.out.println("No se encontró ningún libro con el ISBN especificado");
-        }
-    } catch (SQLException e) {
-        System.out.println("Eliminación fallida");
-        System.out.println(e);
-    } catch (Exception e) {
-        System.out.println("Eliminación fallida");
-        System.out.println(e);
+            if (numeroFilas > 0) {
+                System.out.println("Eliminación exitosa");
+            } else {
+                System.out.println("No se encontró ningún libro con el ISBN especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Eliminación fallida");
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println("Eliminación fallida");
+            System.out.println(e);
         }
     }
 }

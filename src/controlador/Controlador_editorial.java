@@ -40,16 +40,19 @@ public class Controlador_editorial  {
 
     public Modelo_editorial consultar_editorial(String codigo_editorial){
         
-        Modelo_editorial Modelo_editorial = editorial_DAO.consultar_editorial(codigo_editorial);
+        Modelo_editorial modelo_editorial = editorial_DAO.consultar_editorial(codigo_editorial);
       
-        return Modelo_editorial;
+        return modelo_editorial;
+    }
+
+    public void modificar_editorial(Modelo_editorial modelo_editorial, String columna, String valor){
+        
+        editorial_DAO.actualizar_editorial(modelo_editorial, columna, valor);
+      
     }
     
     public void eliminar_editorial(String codigo_editorial) {
-    editorial_DAO.eliminar_editorial(codigo_editorial);
+        editorial_DAO.eliminar_editorial(codigo_editorial);
     }
 
-
-
-    
 }

@@ -79,24 +79,46 @@ public class DAO_autor {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
-    public void eliminar_autor(String codigo_autor) {
-    String sql_eliminar = "DELETE FROM autor WHERE codigo_autor = '" + codigo_autor + "'";
     
-    try {
-        Statement sentencia = this.conexion.createStatement();
-        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+    public void actualizar_autor(Modelo_autor modelo_autor, String columna, String valor){
+
+        int numeroFilas=0;
         
-        if (numeroFilas > 0) {
-            System.out.println("Eliminación exitosa");
-        } else {
-            System.out.println("No se encontró el autor con el código especificado");
+        String sql_guardar;
+        
+        sql_guardar="UPDATE autor \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE codigo_autor = '" + modelo_autor.getCodigo_autor()+"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
         }
-    } catch (SQLException e) {
-        System.out.println("Eliminación fallida");
-        System.out.println(e);
-    } catch (Exception e) {
-        System.out.println("Eliminación fallida");
-        System.out.println(e);
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+    } 
+
+    
+    public void eliminar_autor(String codigo_autor) {
+        String sql_eliminar = "DELETE FROM autor WHERE codigo_autor = '" + codigo_autor + "'";
+    
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Eliminación exitosa");
+            } else {
+                System.out.println("No se encontró el autor con el código especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Eliminación fallida");
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println("Eliminación fallida");
+            System.out.println(e);
         }
     }
 

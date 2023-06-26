@@ -110,6 +110,25 @@ public class DAO_prestamo_de_libro {
         }
     }
 
-    
+    public void actualizar_prestamo_de_libro(Modelo_prestamo_de_libro modelo_prestamo_de_libro, String columna, String valor){
+
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        sql_guardar="UPDATE prestamo_de_libro \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE numero_consecutivo_prestamo = '" + modelo_prestamo_de_libro.getNumero_consecutivo_prestamo()+"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
+        }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        
+    } 
     
 }

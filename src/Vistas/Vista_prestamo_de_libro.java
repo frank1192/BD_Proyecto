@@ -99,6 +99,11 @@ public class Vista_prestamo_de_libro extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -349,6 +354,68 @@ public class Vista_prestamo_de_libro extends javax.swing.JFrame {
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         dispose();
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        String numero_consecutivo_prestamo, codigo_usuario_prestamo, identificacion_empleado_prestamo, isbn_libro_ejemplar_prestamo, numero_ejemplar_prestamo, fecha_de_realizacion_prestamo, fecha_de_devolucion_prestamo, descripcion_prestamo; 
+       
+        numero_consecutivo_prestamo = txt_1.getText();
+        codigo_usuario_prestamo = txt_2.getText();
+        identificacion_empleado_prestamo = txt_3.getText();
+        isbn_libro_ejemplar_prestamo = txt_4.getText();
+        numero_ejemplar_prestamo = txt_5.getText();      
+        fecha_de_realizacion_prestamo = txt_6.getText();
+        fecha_de_devolucion_prestamo = txt_7.getText();
+        descripcion_prestamo = txtA_1.getText();
+        
+        
+        Modelo_prestamo_de_libro modelo_prestamo_de_libro = new Modelo_prestamo_de_libro(); 
+        
+        modelo_prestamo_de_libro.setNumero_consecutivo_prestamo(numero_consecutivo_prestamo);
+        modelo_prestamo_de_libro.setCodigo_usuario_prestamo(codigo_usuario_prestamo);
+        modelo_prestamo_de_libro.setIdentificacion_empleado_prestamo(identificacion_empleado_prestamo);
+        modelo_prestamo_de_libro.setIsbn_libro_ejemplar_prestamo(isbn_libro_ejemplar_prestamo);
+        modelo_prestamo_de_libro.setNumero_ejemplar_prestamo(numero_ejemplar_prestamo);
+        modelo_prestamo_de_libro.setFecha_de_realizacion_prestamo(fecha_de_realizacion_prestamo);
+        modelo_prestamo_de_libro.setFecha_de_devolucion_prestamo(fecha_de_devolucion_prestamo);
+        modelo_prestamo_de_libro.setDescripcion_prestamo(descripcion_prestamo);
+
+        try{
+
+            if (!"".equals(codigo_usuario_prestamo)){
+                controlador_prestamo_de_libro.modificar_prestamo_de_libro(modelo_prestamo_de_libro, "codigo_usuario_prestamo", codigo_usuario_prestamo);
+            }
+
+            if (!"".equals(identificacion_empleado_prestamo)){
+                controlador_prestamo_de_libro.modificar_prestamo_de_libro(modelo_prestamo_de_libro, "identificacion_empleado_prestamo", identificacion_empleado_prestamo);
+            }
+
+            if (!"".equals(isbn_libro_ejemplar_prestamo)){
+                controlador_prestamo_de_libro.modificar_prestamo_de_libro(modelo_prestamo_de_libro, "isbn_libro_ejemplar_prestamo", isbn_libro_ejemplar_prestamo);
+            }
+
+            if (!"".equals(numero_ejemplar_prestamo)){
+                controlador_prestamo_de_libro.modificar_prestamo_de_libro(modelo_prestamo_de_libro, "numero_ejemplar_prestamo", numero_ejemplar_prestamo);
+            }
+
+            if (!"".equals(fecha_de_realizacion_prestamo)){
+                controlador_prestamo_de_libro.modificar_prestamo_de_libro(modelo_prestamo_de_libro, "fecha_de_realizacion_prestamo", fecha_de_realizacion_prestamo);
+            }
+            
+            if (!"".equals(fecha_de_devolucion_prestamo)){
+                controlador_prestamo_de_libro.modificar_prestamo_de_libro(modelo_prestamo_de_libro, "fecha_de_devolucion_prestamo", fecha_de_devolucion_prestamo);
+            }
+            
+            if (!"".equals(descripcion_prestamo)){
+                controlador_prestamo_de_libro.modificar_prestamo_de_libro(modelo_prestamo_de_libro, "descripcion_prestamo", descripcion_prestamo);
+            }
+                
+        }catch(Exception e){
+        }   
+        
+        limpiarGUI();
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

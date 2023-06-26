@@ -74,5 +74,25 @@ public class DAO_profesor {
         
     }
     
+    public void actualizar_profesor(Modelo_profesor modelo_profesor, String columna, String valor){
+
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        sql_guardar="UPDATE profesor \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE codigo_usuario_profesor = '" + modelo_profesor.getCodigo_usuario_profesor()+"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
+        }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        
+    }    
     
 }

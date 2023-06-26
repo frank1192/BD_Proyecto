@@ -81,21 +81,42 @@ public class DAO_multa {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
+    
+    public void actualizar_multa(Modelo_multa modelo_multa, String columna, String valor){
+
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        sql_guardar="UPDATE multa \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE codigo_multa = '" + modelo_multa.getCodigo_multa()+"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
+        }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+    } 
+    
     public void eliminar_multa(String codigo_multa) {
     String sql_eliminar = "DELETE FROM multa WHERE codigo_multa = '" + codigo_multa + "'";
 
-    try {
-        Statement sentencia = this.conexion.createStatement();
-        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
 
-        System.out.println("Eliminación exitosa");
-    } catch (SQLException e) {
-        System.out.println("Eliminación fallida");
-        System.out.println(e);
-    } catch (Exception e) {
-        System.out.println("Eliminación fallida");
-        System.out.println(e);
-        }
+            System.out.println("Eliminación exitosa");
+        } catch (SQLException e) {
+            System.out.println("Eliminación fallida");
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println("Eliminación fallida");
+            System.out.println(e);
+            }
     }
 
 }

@@ -73,7 +73,7 @@ public class Vista_administracion_empleado extends javax.swing.JFrame {
         jComboBox1.setBackground(new java.awt.Color(255, 0, 51));
         jComboBox1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrar usuarios", "Administrar prestamos", "Administrar descargas", "Administrar solicitudes", "Administrar multas", "Administrar libros", "Administrar autores", "Administrar editoriales", "Administrar areas de interes" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrar usuarios", "Administrar prestamos", "Administrar descargas", "Administrar solicitudes", "Administrar multas", "Administrar libros", "Administrar autores", "Administrar editoriales", "Administrar areas de interes", "Administrar areas de conocimiento" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -89,7 +89,7 @@ public class Vista_administracion_empleado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(57, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -174,6 +174,11 @@ public class Vista_administracion_empleado extends javax.swing.JFrame {
         if ("Administrar areas de interes".equals(opcion_s)) {
             Vista_area_de_interes vista_area_de_interes = new Vista_area_de_interes();
             vista_area_de_interes.setVisible(true);
+        }
+        
+        if ("Administrar areas de conocimiento".equals(opcion_s)) {
+            Vista_area_de_conocimiento vista_area_de_conocimiento = new Vista_area_de_conocimiento();
+            vista_area_de_conocimiento.setVisible(true);
         }
     }//GEN-LAST:event_btnEntrar1ActionPerformed
 

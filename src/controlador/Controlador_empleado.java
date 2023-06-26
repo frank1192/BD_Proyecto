@@ -37,4 +37,10 @@ public class Controlador_empleado {
       
         return modelo_empleado;
     }
+    
+    public void modificar_empleado(Modelo_empleado modelo_empleado, String columna, String valor){
+        
+        dao_libro.actualizar_empleado(modelo_empleado, columna, valor);
+      
+    }
 }

@@ -37,10 +37,15 @@ public class Controlador_area_de_conocimiento {
       
         return modelo_area_de_conocimiento;
     }
+
+    public void modificar_area_de_conocimiento(Modelo_area_de_conocimiento modelo_area_de_conocimiento, String columna, String valor){
+        
+        dao_area_de_conocimiento.actualizar_area_de_conocimiento(modelo_area_de_conocimiento, columna, valor);
+      
+    }
     
     public void eliminar_area_de_conocimiento(String codigo_area_de_conocimiento) {
-    dao_area_de_conocimiento.eliminar_area_de_conocimiento(codigo_area_de_conocimiento);
-    System.out.println("Área de conocimiento eliminada exitosamente");
+        dao_area_de_conocimiento.eliminar_area_de_conocimiento(codigo_area_de_conocimiento);
     }
 
 }

@@ -70,24 +70,46 @@ public class DAO_area_de_interes {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
-    public void eliminar_area_de_interes(String codigo_area_de_interes) {
-    int numeroFilas = 0;
 
-    String sql_eliminar;
-    sql_eliminar = "DELETE FROM area_de_interes WHERE codigo_area_de_interes = '" + codigo_area_de_interes + "'";
+    public void actualizar_area_de_interes(Modelo_area_de_interes modelo_area_de_interes, String columna, String valor){
 
-    try {
-        Statement sentencia = this.conexion.createStatement();
-        numeroFilas = sentencia.executeUpdate(sql_eliminar);
-
-        System.out.println("Eliminación exitosa"); 
-    } catch(SQLException e) {
-        System.out.println("Eliminación fallida");
-        System.out.println(e);
-    } catch(Exception e) {
-        System.out.println("Eliminación fallida");
-        System.out.println(e);
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        sql_guardar="UPDATE area_de_interes \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE codigo_area_de_interes = '" + modelo_area_de_interes.getCodigo_area_de_interes()+"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
         }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+    } 
+
+    
+    public void eliminar_area_de_interes(String codigo_area_de_interes) {
+        int numeroFilas = 0;
+
+        String sql_eliminar;
+        sql_eliminar = "DELETE FROM area_de_interes WHERE codigo_area_de_interes = '" + codigo_area_de_interes + "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            System.out.println("Eliminación exitosa"); 
+        } catch(SQLException e) {
+            System.out.println("Eliminación fallida");
+            System.out.println(e);
+        } catch(Exception e) {
+            System.out.println("Eliminación fallida");
+            System.out.println(e);
+            }
     }
 
 }

@@ -39,6 +39,12 @@ public class Controlador_autor {
         return modelo_autor;
     }
     
+    public void modificar_autor(Modelo_autor modelo_autor, String columna, String valor){
+        
+        dao_autor.actualizar_autor(modelo_autor, columna, valor);
+      
+    }
+    
     public void eliminar_autor(String codigo_autor) {
     dao_autor.eliminar_autor(codigo_autor);
     }

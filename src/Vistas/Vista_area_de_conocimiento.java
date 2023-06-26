@@ -97,6 +97,11 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -245,6 +250,43 @@ public class Vista_area_de_conocimiento extends javax.swing.JFrame {
         dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        String codigo_area_de_conocimiento, nombre_area_de_conocimiento, codigo_area_padre, descripcion_area_de_conocimiento; 
+       
+        codigo_area_de_conocimiento = txt_1.getText();
+        nombre_area_de_conocimiento = txt_2.getText();
+        codigo_area_padre = txt_3.getText();
+        descripcion_area_de_conocimiento = txtA_1.getText();
+        
+        
+        Modelo_area_de_conocimiento modelo_area_de_conocimiento = new Modelo_area_de_conocimiento(); 
+        
+        modelo_area_de_conocimiento.setCodigo_area_de_conocimiento(codigo_area_de_conocimiento);
+        modelo_area_de_conocimiento.setNombre_area_de_conocimiento(nombre_area_de_conocimiento);
+        modelo_area_de_conocimiento.setCodigo_area_padre(codigo_area_padre);
+        modelo_area_de_conocimiento.setDescripcion_area_de_conocimiento(descripcion_area_de_conocimiento);
+
+        try{
+
+            if (!"".equals(nombre_area_de_conocimiento)){
+                controlador_area_de_conocimiento.modificar_area_de_conocimiento(modelo_area_de_conocimiento, "nombre_area_de_conocimiento", nombre_area_de_conocimiento);
+            }
+
+            if (!"".equals(codigo_area_padre)){
+                controlador_area_de_conocimiento.modificar_area_de_conocimiento(modelo_area_de_conocimiento, "codigo_area_padre", codigo_area_padre);
+            }
+
+            if (!"".equals(descripcion_area_de_conocimiento)){
+                controlador_area_de_conocimiento.modificar_area_de_conocimiento(modelo_area_de_conocimiento, "descripcion_area_de_conocimiento", descripcion_area_de_conocimiento);
+            }
+                
+        }catch(Exception e){
+        }   
+        
+        limpiarGUI();
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

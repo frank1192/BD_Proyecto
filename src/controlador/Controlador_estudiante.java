@@ -14,10 +14,10 @@ import accesoDatos.DAO_estudiante;
  */
 public class Controlador_estudiante {
             
-    DAO_estudiante dao_usuario;
+    DAO_estudiante dao_estudiante;
     
     public Controlador_estudiante(){
-        dao_usuario = new DAO_estudiante();
+        dao_estudiante = new DAO_estudiante();
     }
     
     public void agregar_estudiante(String codigo_usuario_estudiante, String universidad_estudiante, String carrera_estudiante){
@@ -27,13 +27,19 @@ public class Controlador_estudiante {
         modelo_estudiante.setUniversidad_estudiante(universidad_estudiante);
         modelo_estudiante.setCarrera_estudiante(carrera_estudiante);
         
-        dao_usuario.insertar_estudiante(modelo_estudiante);
+        dao_estudiante.insertar_estudiante(modelo_estudiante);
     }
 
     public Modelo_estudiante consultar_estudiante(String codigo_usuario_estudiante){
         
-        Modelo_estudiante modelo_usuario = dao_usuario.seleccionar_estudiante(codigo_usuario_estudiante);
+        Modelo_estudiante modelo_estudiante = dao_estudiante.seleccionar_estudiante(codigo_usuario_estudiante);
       
-        return modelo_usuario;
+        return modelo_estudiante;
+    }
+    
+    public void modificar_estudiante(Modelo_estudiante modelo_estudiante, String columna, String valor){
+        
+        dao_estudiante.actualizar_estudiante(modelo_estudiante, columna, valor);
+      
     }
 }

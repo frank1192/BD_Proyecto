@@ -92,6 +92,11 @@ public class Vista_profesor extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -249,7 +254,46 @@ public class Vista_profesor extends javax.swing.JFrame {
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         dispose();
     }//GEN-LAST:event_btnFinalizarActionPerformed
-   private void limpiarGUI(){
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+
+        String codigo_usuario_profesor, titulo_profesor, lista_de_areas, dependencia_profesor; 
+       
+        codigo_usuario_profesor = txt_1.getText();
+        titulo_profesor = txt_2.getText();
+        dependencia_profesor = txt_3.getText();
+        lista_de_areas = txtA_1.getText();
+
+        
+        Modelo_profesor modelo_profesor = new Modelo_profesor(); 
+        
+        modelo_profesor.setCodigo_usuario_profesor(codigo_usuario_profesor);
+        modelo_profesor.setTitulo_profesor(titulo_profesor);
+        modelo_profesor.setDependencia_profesor(dependencia_profesor);
+
+        try{
+
+            if (!"".equals(titulo_profesor)){
+                controlador_profesor.modificar_profesor(modelo_profesor, "titulo_profesor", titulo_profesor);
+            }
+
+//            if (!"".equals(lista_de_areas)){
+//                controlador_profesor.modificar_profesor(modelo_profesor, "lista_de_areas", lista_de_areas);
+//            }
+
+            if (!"".equals(dependencia_profesor)){
+                controlador_profesor.modificar_profesor(modelo_profesor, "dependencia_profesor", dependencia_profesor);
+            }
+                
+        } catch(Exception e){
+        }   
+        
+        limpiarGUI();
+
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");
         txt_3.setText("");

@@ -87,6 +87,11 @@ public class Vista_estudiante extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -216,6 +221,38 @@ public class Vista_estudiante extends javax.swing.JFrame {
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         dispose();
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        String codigo_usuario_estudiante, universidad_estudiante, carrera_estudiante; 
+       
+        codigo_usuario_estudiante = txt_1.getText();
+        universidad_estudiante = txt_2.getText();
+        carrera_estudiante = txt_3.getText();
+             
+        Modelo_estudiante modelo_estudiante = new Modelo_estudiante(); 
+        
+        modelo_estudiante.setCodigo_usuario_estudiante(codigo_usuario_estudiante);
+        modelo_estudiante.setUniversidad_estudiante(universidad_estudiante);
+        modelo_estudiante.setCarrera_estudiante(carrera_estudiante);
+
+        try{
+
+            if (!"".equals(universidad_estudiante)){
+                controlador_estudiante.modificar_estudiante(modelo_estudiante, "universidad_estudiante", universidad_estudiante);
+            }
+
+            if (!"".equals(carrera_estudiante)){
+                controlador_estudiante.modificar_estudiante(modelo_estudiante, "carrera_estudiante", carrera_estudiante);
+            }
+                
+        }catch(Exception e){
+        }   
+        
+        limpiarGUI();
+                
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

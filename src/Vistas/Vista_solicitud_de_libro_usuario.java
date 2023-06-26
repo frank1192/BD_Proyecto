@@ -95,6 +95,11 @@ public class Vista_solicitud_de_libro_usuario extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -295,8 +300,57 @@ public class Vista_solicitud_de_libro_usuario extends javax.swing.JFrame {
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         dispose();
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        String numero_consecutivo_solicitud, isbn_libro_solicitud, codigo_usuario_solicitud, identificacion_empleado_solicitud, fecha_solicitud, descripcion; 
+       
+        numero_consecutivo_solicitud = txt_1.getText();
+        isbn_libro_solicitud = txt_2.getText();
+        codigo_usuario_solicitud = txt_3.getText();
+        identificacion_empleado_solicitud = txt_4.getText();
+        fecha_solicitud = txt_5.getText();
+        
+        descripcion = txtA_1.getText();
+        
+        Modelo_solicitud_de_libro modelo_solicitud_de_libro = new Modelo_solicitud_de_libro(); 
+        
+        modelo_solicitud_de_libro.setNumero_consecutivo_solicitud(numero_consecutivo_solicitud);
+        modelo_solicitud_de_libro.setIsbn_libro_solicitud(isbn_libro_solicitud);
+        modelo_solicitud_de_libro.setCodigo_usuario_solicitud(codigo_usuario_solicitud);
+        modelo_solicitud_de_libro.setIdentificacion_empleado_solicitud(identificacion_empleado_solicitud);
+        modelo_solicitud_de_libro.setFecha_solicitud(fecha_solicitud);
+        modelo_solicitud_de_libro.setDescripcion(descripcion);
+
+        try{
+            
+            if (!"".equals(isbn_libro_solicitud)){
+                controlador_solicitud_de_libro.modificar_solicitud_de_libro(modelo_solicitud_de_libro, "isbn_libro_solicitud", isbn_libro_solicitud);
+            }
+
+            if (!"".equals(codigo_usuario_solicitud)){
+                controlador_solicitud_de_libro.modificar_solicitud_de_libro(modelo_solicitud_de_libro, "codigo_usuario_solicitud", codigo_usuario_solicitud);
+            }
+
+            if (!"".equals(identificacion_empleado_solicitud)){
+                controlador_solicitud_de_libro.modificar_solicitud_de_libro(modelo_solicitud_de_libro, "identificacion_empleado_solicitud", identificacion_empleado_solicitud);
+            }
+
+            if (!"".equals(fecha_solicitud)){
+                controlador_solicitud_de_libro.modificar_solicitud_de_libro(modelo_solicitud_de_libro, "fecha_solicitud", fecha_solicitud);
+            }
+
+            if (!"".equals(descripcion)){
+                controlador_solicitud_de_libro.modificar_solicitud_de_libro(modelo_solicitud_de_libro, "descripcion", descripcion);
+            }
+                
+        }catch(Exception e){
+        }   
+        
+        limpiarGUI();
+
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

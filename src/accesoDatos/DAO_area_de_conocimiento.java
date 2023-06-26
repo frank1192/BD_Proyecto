@@ -75,24 +75,45 @@ public class DAO_area_de_conocimiento {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
+    
+    public void actualizar_area_de_conocimiento(Modelo_area_de_conocimiento modelo_area_de_conocimiento, String columna, String valor){
+
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        sql_guardar="UPDATE area_de_conocimiento \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE codigo_area_de_conocimiento = '" + modelo_area_de_conocimiento.getCodigo_area_de_conocimiento()+"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
+        }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+    } 
+    
     public void eliminar_area_de_conocimiento(String codigo_area_de_conocimiento) {
-    String sql_eliminar = "DELETE FROM area_de_conocimiento WHERE codigo_area_de_conocimiento = '" + codigo_area_de_conocimiento + "'";
+        String sql_eliminar = "DELETE FROM area_de_conocimiento WHERE codigo_area_de_conocimiento = '" + codigo_area_de_conocimiento + "'";
 
-    try {
-        Statement sentencia = this.conexion.createStatement();
-        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
 
-        if (numeroFilas > 0) {
-            System.out.println("Eliminación exitosa");
-        } else {
-            System.out.println("No se encontró el registro a eliminar");
-            }
-    } catch (SQLException e) {
-        System.out.println("Eliminación fallida");
-        System.out.println(e);
-    } catch (Exception e) {
-        System.out.println("Eliminación fallida");
-        System.out.println(e);
+            if (numeroFilas > 0) {
+                System.out.println("Eliminación exitosa");
+            } else {
+                System.out.println("No se encontró el registro a eliminar");
+                }
+        } catch (SQLException e) {
+            System.out.println("Eliminación fallida");
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println("Eliminación fallida");
+            System.out.println(e);
         }
     }
     

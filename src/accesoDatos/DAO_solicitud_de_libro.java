@@ -82,6 +82,28 @@ public class DAO_solicitud_de_libro {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
+    
+    public void actualizar_solicitud_de_libro(Modelo_solicitud_de_libro modelo_solicitud_de_libro, String columna, String valor){
+
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        sql_guardar="UPDATE solicitud_de_libro \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE numero_consecutivo_solicitud = '" + modelo_solicitud_de_libro.getNumero_consecutivo_solicitud() +"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
+        }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        
+    }
+    
     public void eliminar_solicitud_de_libro(String numero_consecutivo_solicitud) {
     String sql_eliminar = "DELETE FROM solicitud_de_libro WHERE numero_consecutivo_solicitud = '" + numero_consecutivo_solicitud + "'";
 

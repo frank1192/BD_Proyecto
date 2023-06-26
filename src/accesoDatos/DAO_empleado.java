@@ -77,5 +77,23 @@ public class DAO_empleado {
         
     }
     
-    
+    public void actualizar_empleado(Modelo_empleado modelo_empleado, String columna, String valor){
+
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        sql_guardar="UPDATE usuario \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE identificacion_empleado = '" + modelo_empleado.getIdentificacion_empleado()+"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
+        }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+    }  
 }

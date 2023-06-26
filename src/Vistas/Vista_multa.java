@@ -99,6 +99,11 @@ public class Vista_multa extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -265,6 +270,51 @@ public class Vista_multa extends javax.swing.JFrame {
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         dispose();
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+         
+
+        String codigo_multa, fecha_multa, valor_multa, codigo_usuario_multa, descripcion_multa; 
+       
+        codigo_multa = txt_1.getText();
+        fecha_multa = txt_2.getText();
+        valor_multa = txt_3.getText();
+        codigo_usuario_multa = txt_4.getText();
+        descripcion_multa = txtA_1.getText();
+        
+        
+        Modelo_multa modelo_multa = new Modelo_multa(); 
+        
+        modelo_multa.setCodigo_multa(codigo_multa);
+        modelo_multa.setFecha_multa(fecha_multa);
+        modelo_multa.setValor_multa(valor_multa);
+        modelo_multa.setCodigo_usuario_multa(codigo_usuario_multa);
+        modelo_multa.setDescripcion_multa(descripcion_multa);
+
+        try{
+
+            if (!"".equals(fecha_multa)){
+                controlador_multa.modificar_multa(modelo_multa, "fecha_multa", fecha_multa);
+            }
+
+            if (!"".equals(valor_multa)){
+                controlador_multa.modificar_multa(modelo_multa, "valor_multa", valor_multa);
+            }
+
+            if (!"".equals(codigo_usuario_multa)){
+                controlador_multa.modificar_multa(modelo_multa, "codigo_usuario_multa", codigo_usuario_multa);
+            }
+            
+            if (!"".equals(descripcion_multa)){
+                controlador_multa.modificar_multa(modelo_multa, "descripcion_multa", descripcion_multa);
+            }
+                
+        }catch(Exception e){
+        }   
+        
+        limpiarGUI();
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

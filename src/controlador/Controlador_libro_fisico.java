@@ -33,10 +33,16 @@ public class Controlador_libro_fisico {
         dao_libro_fisico.insertar_libro_fisico(modelo_libro);
     }
 
-    public Modelo_libro_fisico consultar_libro_fisico(String isbn_libro_ejemplar){
+    public Modelo_libro_fisico consultar_libro_fisico(String isbn_libro_ejemplar, String numero_ejemplar){
         
-        Modelo_libro_fisico modelo_libro = dao_libro_fisico.seleccionar_libro_fisico(isbn_libro_ejemplar);
+        Modelo_libro_fisico modelo_libro_fisico = dao_libro_fisico.seleccionar_libro_fisico(isbn_libro_ejemplar, numero_ejemplar);
       
-        return modelo_libro;
+        return modelo_libro_fisico;
+    }
+    
+    public void modificar_libro_fisico(Modelo_libro_fisico modelo_libro_fisico, String columna, String valor){
+        
+        dao_libro_fisico.actualizar_libro_fisico(modelo_libro_fisico, columna, valor);
+      
     }
 }

@@ -434,6 +434,7 @@ public class Vista_administracion_de_usuario_por_empleado extends javax.swing.JF
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
         String codigo_usuario, nombre_usuario, direccion_usuario, telefono_usuario, e_mail_usuario, contrasenya_usuario; 
        
         codigo_usuario = txt_1.getText();
@@ -453,10 +454,6 @@ public class Vista_administracion_de_usuario_por_empleado extends javax.swing.JF
         modelo_usuario.setContrasenya_usuario(contrasenya_usuario);
 
         try{
-            
-            if (!"".equals(nombre_usuario)){
-                controlador_usuario.modificar_usuario(modelo_usuario, "nombre_usuario", nombre_usuario);
-            }
 
             if (!"".equals(nombre_usuario)){
                 controlador_usuario.modificar_usuario(modelo_usuario, "nombre_usuario", nombre_usuario);
@@ -480,9 +477,8 @@ public class Vista_administracion_de_usuario_por_empleado extends javax.swing.JF
                 
         }catch(Exception e){
         }   
-        limpiarGUI();
         
-
+        limpiarGUI();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void txt_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_6ActionPerformed

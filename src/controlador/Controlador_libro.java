@@ -41,6 +41,12 @@ public class Controlador_libro {
         return modelo_libro;
     }
     
+    public void modificar_libro(Modelo_libro modelo_libro, String columna, String valor){
+        
+        dao_libro.actualizar_libro(modelo_libro, columna, valor);
+      
+    }
+    
     public String consultar_libro_por_titulo(String isbn_libro){
         
         String libros = dao_libro.seleccionar_libros_por_titulo(isbn_libro);
@@ -49,7 +55,7 @@ public class Controlador_libro {
     }
     
     public void eliminar_libro(String isbn_libro) {
-    dao_libro.eliminar_libro(isbn_libro);
+        dao_libro.eliminar_libro(isbn_libro);
     }
 
 }

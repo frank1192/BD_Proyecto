@@ -40,7 +40,7 @@ public class Controlador_descarga_de_libro {
     }
     
     public void eliminar_descarga(String ip_descarga) {
-    dao_descarga_de_libro.eliminar_descarga_de_libro(ip_descarga);
+        dao_descarga_de_libro.eliminar_descarga_de_libro(ip_descarga);
     }
 
 }

@@ -89,6 +89,11 @@ public class Vista_libro_digital extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -234,6 +239,44 @@ public class Vista_libro_digital extends javax.swing.JFrame {
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         dispose();
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        String isbn_libro_digital, url_libro_digital, formato_libro_digital, tamanyo_libro_digital; 
+       
+        isbn_libro_digital = txt_1.getText();
+        url_libro_digital = txt_2.getText();
+        formato_libro_digital = txt_3.getText();
+        tamanyo_libro_digital = txt_4.getText();
+        
+        
+        Modelo_libro_digital modelo_libro_digital = new Modelo_libro_digital(); 
+        
+        modelo_libro_digital.setIsbn_libro_digital(isbn_libro_digital);
+        modelo_libro_digital.setUrl_libro_digital(url_libro_digital);
+        modelo_libro_digital.setFormato_libro_digital(formato_libro_digital);
+        modelo_libro_digital.setTamanyo_libro_digital(tamanyo_libro_digital);
+
+        try{
+
+            if (!"".equals(url_libro_digital)){
+                controlador_libro_digital.modificar_libro_digital(modelo_libro_digital, "url_libro_digital", url_libro_digital);
+            }
+
+            if (!"".equals(formato_libro_digital)){
+                controlador_libro_digital.modificar_libro_digital(modelo_libro_digital, "formato_libro_digital", formato_libro_digital);
+            }
+
+            if (!"".equals(tamanyo_libro_digital)){
+                controlador_libro_digital.modificar_libro_digital(modelo_libro_digital, "tamanyo_libro_digital", tamanyo_libro_digital);
+            }
+                
+        }catch(Exception e){
+        }   
+        
+        limpiarGUI();
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

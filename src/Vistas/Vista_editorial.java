@@ -28,8 +28,6 @@ public class Vista_editorial extends javax.swing.JFrame {
     private void initComponents() {
 
         btnFinalizar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        AREA = new javax.swing.JTextArea();
         txtpais_de_origen_editorial = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         lblAutor = new javax.swing.JLabel();
@@ -57,27 +55,23 @@ public class Vista_editorial extends javax.swing.JFrame {
             }
         });
 
-        AREA.setColumns(20);
-        AREA.setRows(5);
-        jScrollPane1.setViewportView(AREA);
-
         txtpais_de_origen_editorial.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jLabel1.setText("Pais de origen");
+        jLabel1.setText("Pais de origen:");
 
         lblAutor.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        lblAutor.setText("Pagina web");
+        lblAutor.setText("Pagina web:");
 
         txtpagina_web_editorial.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
         lblNombreRecurso.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        lblNombreRecurso.setText("Nombre");
+        lblNombreRecurso.setText("Nombre:");
 
         txtnombre_editorial.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
         lblCodigo.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        lblCodigo.setText("Codigo");
+        lblCodigo.setText("Codigo:");
 
         txtcodigo_editorial.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
 
@@ -99,6 +93,11 @@ public class Vista_editorial extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -131,82 +130,62 @@ public class Vista_editorial extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblAutor)
-                        .addGap(35, 35, 35)
-                        .addComponent(txtpagina_web_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtpais_de_origen_editorial, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                        .addGap(326, 326, 326))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCodigo)
-                                    .addComponent(lblNombreRecurso))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtnombre_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtcodigo_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(85, 85, 85)
-                                        .addComponent(btnBuscar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnAgregar)))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(lblCodigo)
+                    .addComponent(lblNombreRecurso)
+                    .addComponent(lblAutor)
+                    .addComponent(jLabel1))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtpagina_web_editorial, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                    .addComponent(txtpais_de_origen_editorial)
+                    .addComponent(txtnombre_editorial)
+                    .addComponent(txtcodigo_editorial))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(436, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(115, 115, 115)
-                            .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(127, 127, 127)
-                            .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(542, Short.MAX_VALUE)
+                    .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCodigo)
-                            .addComponent(txtcodigo_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigo)
+                    .addComponent(txtcodigo_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreRecurso)
                     .addComponent(txtnombre_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAutor)
-                    .addComponent(txtpagina_web_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(txtpagina_web_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAutor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtpais_de_origen_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(24, 320, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(11, 11, 11)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(24, 24, 24)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(257, 257, 257)
+                    .addGap(377, 377, 377)
                     .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(46, Short.MAX_VALUE)))
         );
@@ -247,14 +226,14 @@ public class Vista_editorial extends javax.swing.JFrame {
        
         try{
            controlador_editorial.insertar_editorial(codigo_editorial, nombre_editorial, pagina_web_editorial, pais_de_origen_editorial);
-           AREA.append("Editorial guardado exitosamente");
+//           AREA.append("Editorial guardado exitosamente");
            //JOptionPane.showMessageDialog(null, "Programa guardado exitosamente");
            limpiarGUI();
           
         }
         catch(Exception e){
             //System.out.print ("Error al tratar de guardar un programa");
-            AREA.append("Error al tratar de guardar una Editorial");
+//            AREA.append("Error al tratar de guardar una Editorial");
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -267,13 +246,51 @@ public class Vista_editorial extends javax.swing.JFrame {
     
     try {
         controlador_editorial.eliminar_editorial(codigo);
-        AREA.append("Se eliminó el registro correctamente");
+//        AREA.append("Se eliminó el registro correctamente");
         limpiarGUI();
     } catch (Exception e) {
-        AREA.append("Error al tratar de eliminar la Editorial");
+//        AREA.append("Error al tratar de eliminar la Editorial");
     }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        String codigo_editorial, nombre_editorial, pagina_web_editorial, pais_de_origen_editorial; 
+       
+        codigo_editorial = txtcodigo_editorial.getText();
+        nombre_editorial = txtnombre_editorial.getText();
+        pagina_web_editorial = txtpagina_web_editorial.getText();
+        pais_de_origen_editorial = txtpais_de_origen_editorial.getText();
+        
+        
+        Modelo_editorial modelo_editorial = new Modelo_editorial(); 
+        
+        modelo_editorial.setCodigo_editorial(codigo_editorial);
+        modelo_editorial.setNombre_editorial(nombre_editorial);
+        modelo_editorial.setPagina_web_editorial(pagina_web_editorial);
+        modelo_editorial.setPais_de_origen_editorial(pais_de_origen_editorial);
+
+
+        try{
+
+            if (!"".equals(nombre_editorial)){
+                controlador_editorial.modificar_editorial(modelo_editorial, "nombre_editorial", nombre_editorial);
+            }
+
+            if (!"".equals(pagina_web_editorial)){
+                controlador_editorial.modificar_editorial(modelo_editorial, "pagina_web_editorial", pagina_web_editorial);
+            }
+
+            if (!"".equals(pais_de_origen_editorial)){
+                controlador_editorial.modificar_editorial(modelo_editorial, "pais_de_origen_editorial", pais_de_origen_editorial);
+            }
+                
+        } catch(Exception e){
+        }   
+        
+        limpiarGUI();
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txtcodigo_editorial.setText("");
         txtnombre_editorial.setText("");
@@ -288,14 +305,12 @@ public class Vista_editorial extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextArea AREA;
     public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnFinalizar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAutor;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblNombreRecurso;

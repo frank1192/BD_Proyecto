@@ -79,6 +79,7 @@ public class DAO_descarga_de_libro {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }
+    
     public void eliminar_descarga_de_libro(String ip_descarga) {
     String sql_delete = "DELETE FROM descarga_de_libro WHERE ip_descarga = '" + ip_descarga + "'";
 

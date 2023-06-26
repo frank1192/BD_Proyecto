@@ -104,6 +104,11 @@ public class Vista_libro extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -396,6 +401,68 @@ public class Vista_libro extends javax.swing.JFrame {
     Vista_libro_digital vista_libro_digital= new Vista_libro_digital();
     vista_libro_digital.setVisible(true);
     }//GEN-LAST:event_btnEliminar2ActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        String isbn_libro, titulo_libro, anyo_de_publicacion_libro, idioma_libro, numero_de_paginas_libro, codigo_area_de_conocimiento_libro, codigo_editorial_libro, lista_de_autores; 
+       
+        isbn_libro = txt_1.getText();
+        titulo_libro = txt_2.getText();
+        anyo_de_publicacion_libro = txt_3.getText();
+        idioma_libro = txt_4.getText();
+        numero_de_paginas_libro = txt_5.getText();      
+        codigo_area_de_conocimiento_libro = txt_6.getText();
+        codigo_editorial_libro = txt_7.getText();
+        lista_de_autores = txtA_1.getText();
+        
+        
+        Modelo_libro modelo_libro = new Modelo_libro(); 
+        
+        modelo_libro.setIsbn_libro(isbn_libro);
+        modelo_libro.setTitulo_libro(titulo_libro);
+        modelo_libro.setAnyo_de_publicacion_libro(anyo_de_publicacion_libro);
+        modelo_libro.setIdioma_libro(idioma_libro);
+        modelo_libro.setNumero_de_paginas_libro(numero_de_paginas_libro);
+        modelo_libro.setCodigo_area_de_conocimiento_libro(codigo_area_de_conocimiento_libro);
+        modelo_libro.setCodigo_editorial_libro(codigo_editorial_libro);
+//        modelo_libro.setL(lista_de_autores);
+
+        try{
+
+            if (!"".equals(titulo_libro)){
+                controlador_libro.modificar_libro(modelo_libro, "titulo_libro", titulo_libro);
+            }
+
+            if (!"".equals(anyo_de_publicacion_libro)){
+                controlador_libro.modificar_libro(modelo_libro, "anyo_de_publicacion_libro", anyo_de_publicacion_libro);
+            }
+
+            if (!"".equals(idioma_libro)){
+                controlador_libro.modificar_libro(modelo_libro, "idioma_libro", idioma_libro);
+            }
+
+            if (!"".equals(numero_de_paginas_libro)){
+                controlador_libro.modificar_libro(modelo_libro, "numero_de_paginas_libro", numero_de_paginas_libro);
+            }
+
+            if (!"".equals(codigo_area_de_conocimiento_libro)){
+                controlador_libro.modificar_libro(modelo_libro, "codigo_area_de_conocimiento_libro", codigo_area_de_conocimiento_libro);
+            }
+            
+            if (!"".equals(codigo_editorial_libro)){
+                controlador_libro.modificar_libro(modelo_libro, "codigo_editorial_libro", codigo_editorial_libro);
+            }
+            
+//            if (!"".equals(lista_de_autores)){
+//                controlador_libro.modificar_libro(modelo_libro, "lista_de_autores", lista_de_autores);
+//            }
+                
+        }catch(Exception e){
+        }
+        
+        limpiarGUI();
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

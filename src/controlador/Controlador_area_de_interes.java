@@ -36,6 +36,12 @@ public class Controlador_area_de_interes {
         return modelo_area_de_interes;
     }
     
+    public void modificar_area_de_interes(Modelo_area_de_interes modelo_area_de_interes, String columna, String valor){
+        
+        dao_area_de_interes.actualizar_area_de_interes(modelo_area_de_interes, columna, valor);
+      
+    }
+    
     public void eliminar_area_de_interes(String codigo_area_de_interes) {
         dao_area_de_interes.eliminar_area_de_interes(codigo_area_de_interes);
     

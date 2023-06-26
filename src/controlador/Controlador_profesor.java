@@ -32,8 +32,14 @@ public class Controlador_profesor {
 
     public Modelo_profesor consultar_profesor(String codigo_usuario_profesor){
         
-        Modelo_profesor modelo_libro = dao_profesor.seleccionar_profesor(codigo_usuario_profesor);
+        Modelo_profesor modelo_profesor = dao_profesor.seleccionar_profesor(codigo_usuario_profesor);
       
-        return modelo_libro;
+        return modelo_profesor;
+    }
+    
+    public void modificar_profesor(Modelo_profesor modelo_profesor, String columna, String valor){
+        
+        dao_profesor.actualizar_profesor(modelo_profesor, columna, valor);
+      
     }
 }

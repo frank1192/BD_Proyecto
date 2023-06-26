@@ -86,6 +86,11 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -240,8 +245,34 @@ public class Vista_area_de_interes extends javax.swing.JFrame {
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         dispose();
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        String codigo_area_de_interes, nombre_area_de_interes, lista_de_profesores; 
+       
+        codigo_area_de_interes = txt_1.getText();
+        nombre_area_de_interes = txt_2.getText();
+//        lista_de_profesores = txtA_1.getText();
+        
+        
+        Modelo_area_de_interes modelo_area_de_interes = new Modelo_area_de_interes(); 
+        
+        modelo_area_de_interes.setCodigo_area_de_interes(codigo_area_de_interes);
+        modelo_area_de_interes.setNombre_area_de_interes(nombre_area_de_interes);
+//        modelo_area_de_interes.setDescripcion_prestamo(lista_de_profesores);
+
+        try{
+
+            if (!"".equals(nombre_area_de_interes)){
+                controlador_area_de_interes.modificar_area_de_interes(modelo_area_de_interes, "nombre_area_de_interes", nombre_area_de_interes);
+            }
+                
+        }catch(Exception e){
+        }   
+        
+        limpiarGUI();
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

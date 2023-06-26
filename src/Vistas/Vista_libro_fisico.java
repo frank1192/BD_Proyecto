@@ -93,6 +93,11 @@ public class Vista_libro_fisico extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -227,11 +232,11 @@ public class Vista_libro_fisico extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         
         String isbn_libro_ejemplar = txt_1.getText();
+        String numero_ejemplar = txt_2.getText();
                         
         try {
-            Modelo_libro_fisico modelo_libro_fisico = controlador_libro_fisico.consultar_libro_fisico(isbn_libro_ejemplar);
+            Modelo_libro_fisico modelo_libro_fisico = controlador_libro_fisico.consultar_libro_fisico(isbn_libro_ejemplar, numero_ejemplar);
 
-            txt_2.setText(modelo_libro_fisico.getNumero_ejemplar());
             txt_3.setText(modelo_libro_fisico.getSala_ejemplar());
             txt_4.setText(modelo_libro_fisico.getPasillo_ejemplar());
             txt_5.setText(modelo_libro_fisico.getEstante_ejemplar());
@@ -277,6 +282,56 @@ public class Vista_libro_fisico extends javax.swing.JFrame {
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         dispose();
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+ 
+        String isbn_libro_ejemplar, numero_ejemplar, sala_ejemplar, pasillo_ejemplar, estante_ejemplar, cajon_ejemplar; 
+       
+        isbn_libro_ejemplar = txt_1.getText();
+        numero_ejemplar = txt_2.getText();
+        sala_ejemplar = txt_3.getText();
+        pasillo_ejemplar = txt_4.getText();
+        estante_ejemplar = txt_5.getText();      
+        cajon_ejemplar = txt_6.getText();
+        
+        
+        Modelo_libro_fisico modelo_libro_fisico = new Modelo_libro_fisico(); 
+        
+        modelo_libro_fisico.setIsbn_libro_ejemplar(isbn_libro_ejemplar);
+        modelo_libro_fisico.setNumero_ejemplar(numero_ejemplar);
+        modelo_libro_fisico.setSala_ejemplar(sala_ejemplar);
+        modelo_libro_fisico.setPasillo_ejemplar(pasillo_ejemplar);
+        modelo_libro_fisico.setEstante_ejemplar(estante_ejemplar);
+        modelo_libro_fisico.setCajon_ejemplar(cajon_ejemplar);
+
+        try{
+
+//            if (!"".equals(numero_ejemplar)){
+//                controlador_libro_fisico.modificar_libro_fisico(modelo_libro_fisico, "numero_ejemplar", numero_ejemplar);
+//            }
+
+            if (!"".equals(sala_ejemplar)){
+                controlador_libro_fisico.modificar_libro_fisico(modelo_libro_fisico, "sala_ejemplar", sala_ejemplar);
+            }
+
+            if (!"".equals(pasillo_ejemplar)){
+                controlador_libro_fisico.modificar_libro_fisico(modelo_libro_fisico, "pasillo_ejemplar", pasillo_ejemplar);
+            }
+
+            if (!"".equals(estante_ejemplar)){
+                controlador_libro_fisico.modificar_libro_fisico(modelo_libro_fisico, "estante_ejemplar", estante_ejemplar);
+            }
+
+            if (!"".equals(cajon_ejemplar)){
+                controlador_libro_fisico.modificar_libro_fisico(modelo_libro_fisico, "cajon_ejemplar", cajon_ejemplar);
+            }
+                
+        }catch(Exception e){
+        }   
+        
+        limpiarGUI();
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");

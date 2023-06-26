@@ -75,22 +75,42 @@ public class editorial_DAO {
         return null;
     }
     
-    public void eliminar_editorial(String codigo_editorial) {
-    String sql_eliminar = "DELETE FROM editorial WHERE codigo_editorial = '" + codigo_editorial + "'";
-    
-    try {
-        Statement sentencia = this.conexion.createStatement();
-        int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+    public void actualizar_editorial(Modelo_editorial modelo_editorial, String columna, String valor){
+
+        int numeroFilas=0;
         
-        if (numeroFilas > 0) {
-            System.out.println("Se eliminó el registro correctamente");
-        } else {
-            System.out.println("No se encontró el registro con el código editorial especificado");
+        String sql_guardar;
+        
+        sql_guardar="UPDATE editorial \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE codigo_editorial = '" + modelo_editorial.getCodigo_editorial()+"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
         }
-    } catch (SQLException e) {
-        System.out.println("Error al intentar eliminar Editorial");
-        System.out.println(e);
-    } 
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}        
+    }
+    
+    public void eliminar_editorial(String codigo_editorial) {
+        String sql_eliminar = "DELETE FROM editorial WHERE codigo_editorial = '" + codigo_editorial + "'";
+
+        try {
+            Statement sentencia = this.conexion.createStatement();
+            int numeroFilas = sentencia.executeUpdate(sql_eliminar);
+
+            if (numeroFilas > 0) {
+                System.out.println("Se eliminó el registro correctamente");
+            } else {
+                System.out.println("No se encontró el registro con el código editorial especificado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al intentar eliminar Editorial");
+            System.out.println(e);
+        } 
     }
 
     

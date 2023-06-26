@@ -29,7 +29,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnEntrar" min="-2" pref="94" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="403" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                  <Component id="jComboBox1" alignment="0" min="-2" pref="334" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="57" max="32767" attributes="0"/>
           </Group>
@@ -142,7 +142,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="9">
+          <StringArray count="10">
             <StringItem index="0" value="Administrar usuarios"/>
             <StringItem index="1" value="Administrar prestamos"/>
             <StringItem index="2" value="Administrar descargas"/>
@@ -152,6 +152,7 @@
             <StringItem index="6" value="Administrar autores"/>
             <StringItem index="7" value="Administrar editoriales"/>
             <StringItem index="8" value="Administrar areas de interes"/>
+            <StringItem index="9" value="Administrar areas de conocimiento"/>
           </StringArray>
         </Property>
       </Properties>

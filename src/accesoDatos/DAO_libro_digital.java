@@ -77,5 +77,25 @@ public class DAO_libro_digital {
         
     }
     
+    public void actualizar_libro_digital(Modelo_libro_digital modelo_libro_digital, String columna, String valor){
+
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        sql_guardar="UPDATE libro_digital \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE isbn_libro_digital = '" + modelo_libro_digital.getIsbn_libro_digital()+"' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
+        }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+    } 
+    
     
 }

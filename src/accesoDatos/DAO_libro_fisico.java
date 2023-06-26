@@ -46,7 +46,33 @@ public class DAO_libro_fisico {
         
     }
     
-    public Modelo_libro_fisico seleccionar_libro_fisico(String isbn_libro_ejemplar){
+    public void actualizar_libro_fisico(Modelo_libro_fisico modelo_libro_fisico, String columna, String valor){
+
+        int numeroFilas=0;
+        
+        String sql_guardar;
+        
+        System.out.println(columna);
+        System.out.println(valor);
+        System.out.println(modelo_libro_fisico.getIsbn_libro_ejemplar());
+        System.out.println(modelo_libro_fisico.getNumero_ejemplar());
+        
+        sql_guardar="UPDATE libro_fisico \n" +
+                "SET " + columna + " = '" + valor + "' \n" +
+                "WHERE isbn_libro_ejemplar = '" + modelo_libro_fisico.getIsbn_libro_ejemplar()+"' AND numero_ejemplar = '" + modelo_libro_fisico.getNumero_ejemplar() + "' ;";
+        
+        try{
+            Statement sentencia = this.conexion.createStatement();
+            numeroFilas = sentencia.executeUpdate(sql_guardar);
+            
+            System.out.println("Actualizacion exitosa"); 
+        }
+        catch(SQLException e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
+        
+    } 
+    
+    public Modelo_libro_fisico seleccionar_libro_fisico(String isbn_libro_ejemplar, String numero_ejemplar){
 
         Modelo_libro_fisico modelo_libro_fisico= new Modelo_libro_fisico();
         
@@ -58,7 +84,7 @@ public class DAO_libro_fisico {
                 + "pasillo_ejemplar, "
                 + "estante_ejemplar, "
                 + "cajon_ejemplar "
-                + "FROM libro_fisico WHERE isbn_libro_ejemplar ='" + isbn_libro_ejemplar +  "'";
+                + "FROM libro_fisico WHERE isbn_libro_ejemplar = '" + isbn_libro_ejemplar +  "' AND numero_ejemplar = '" +numero_ejemplar+"' ;";
         
         try{
 

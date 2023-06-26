@@ -98,6 +98,11 @@ public class Vista_autor extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -306,6 +311,52 @@ public class Vista_autor extends javax.swing.JFrame {
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         dispose();
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        String codigo_autor, primer_nombre_autor, segundo_nombre_autor, primer_apellido_autor, segundo_apellido_autor, lista_de_libros; 
+       
+        codigo_autor = txt_1.getText();
+        primer_nombre_autor = txt_2.getText();
+        segundo_nombre_autor = txt_3.getText();
+        primer_apellido_autor = txt_4.getText();
+        segundo_apellido_autor = txt_5.getText();     
+//        lista_de_libros = txtA_1.getText();
+        
+        
+        Modelo_autor modelo_autor = new Modelo_autor(); 
+        
+        modelo_autor.setCodigo_autor(codigo_autor);
+        modelo_autor.setPrimer_nombre_autor(primer_nombre_autor);
+        modelo_autor.setSegundo_nombre_autor(segundo_nombre_autor);
+        modelo_autor.setPrimer_apellido_autor(primer_apellido_autor);
+        modelo_autor.setSegundo_apellido_autor(segundo_apellido_autor);
+//        modelo_prestamo_de_libro.setDescripcion_prestamo(lista_de_libros);
+
+        try{
+
+            if (!"".equals(primer_nombre_autor)){
+                controlador_autor.modificar_autor(modelo_autor, "primer_nombre_autor", primer_nombre_autor);
+            }
+
+            if (!"".equals(segundo_nombre_autor)){
+                controlador_autor.modificar_autor(modelo_autor, "segundo_nombre_autor", segundo_nombre_autor);
+            }
+
+            if (!"".equals(primer_apellido_autor)){
+                controlador_autor.modificar_autor(modelo_autor, "primer_apellido_autor", primer_apellido_autor);
+            }
+
+            if (!"".equals(segundo_apellido_autor)){
+                controlador_autor.modificar_autor(modelo_autor, "segundo_apellido_autor", segundo_apellido_autor);
+            }
+                
+        }catch(Exception e){
+        }   
+        
+        limpiarGUI();        
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");
