@@ -45,8 +45,6 @@ public class DAO_multa {
         
     }
  
-    
-       
     public Modelo_multa seleccionar_multa(String codigo_multa){
 
         Modelo_multa modelo_multa= new Modelo_multa();
@@ -118,5 +116,32 @@ public class DAO_multa {
             System.out.println(e);
             }
     }
+    
+        public String seleccionar_multas_de_usuario(String codigo_usuario_multa){
+        
+        String lista_de_multas = "";
+        
+        String sql_select;
+        sql_select="SELECT "
+                + "codigo_multa "
+                + "FROM multa WHERE codigo_usuario_multa = '" + codigo_usuario_multa +  "'";
+        
+        try{
+
+            Statement sentencia = this.conexion.createStatement();
+            ResultSet seleccion = sentencia.executeQuery(sql_select);
+            
+            while (seleccion.next()){
+               lista_de_multas = lista_de_multas + "- " + seleccion.getString(1) + "\n";
+            }
+            
+            System.out.println("Seleccion exitosa");
+           
+            return lista_de_multas/*modelo_libros_y_autores*/;
+        }
+        catch(SQLException e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        
+    }    
 
 }

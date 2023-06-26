@@ -120,4 +120,31 @@ public class DAO_descarga_de_libro {
         } 
     }    
     
+    public String seleccionar_descargas_de_usuario(String codigo_usuario_solicitud){
+        
+        String lista_de_solicitudes = "";
+        
+        String sql_select;
+        sql_select="SELECT "
+                + "ip_descarga "
+                + "FROM descarga_de_libro WHERE codigo_usuario_descarga = '" + codigo_usuario_solicitud +  "'";
+        
+        try{
+
+            Statement sentencia = this.conexion.createStatement();
+            ResultSet seleccion = sentencia.executeQuery(sql_select);
+            
+            while (seleccion.next()){
+               lista_de_solicitudes = lista_de_solicitudes + "- " + seleccion.getString(1) + "\n";
+            }
+            
+            System.out.println("Seleccion exitosa");
+           
+            return lista_de_solicitudes/*modelo_libros_y_autores*/;
+        }
+        catch(SQLException e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        
+    }        
+
 }

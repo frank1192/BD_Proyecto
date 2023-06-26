@@ -1,6 +1,10 @@
 
 package Vistas;
 
+import controlador.Controlador_descarga_de_libro;
+import controlador.Controlador_multa;
+import controlador.Controlador_prestamo_de_libro;
+import controlador.Controlador_solicitud_de_libro;
 import controlador.Controlador_usuario;
 import javax.swing.JOptionPane;
 import modelo.Modelo_usuario;
@@ -28,6 +32,23 @@ public class Vista_ver_y_editar_usuario extends javax.swing.JFrame {
         txt_4.setText(modelo_usuario.getTelefono_usuario());
         txt_5.setText(modelo_usuario.getE_mail_usuario());
         txt_6.setText(modelo_usuario.getContrasenya_usuario());
+        
+        Controlador_solicitud_de_libro controlador_solicitud_de_libro = new Controlador_solicitud_de_libro();
+        String lista_de_solicitudes = controlador_solicitud_de_libro.consultar_solicitudes_de_usuario(modelo_usuario.getCodigo_usuario());
+
+        Controlador_prestamo_de_libro controlador_prestamo_de_libro = new Controlador_prestamo_de_libro();
+        String lista_de_prestamos = controlador_prestamo_de_libro.consultar_prestamos_de_usuario(modelo_usuario.getCodigo_usuario());
+
+        Controlador_descarga_de_libro controlador_descarga_de_libro = new Controlador_descarga_de_libro();
+        String lista_de_descargas = controlador_descarga_de_libro.consultar_descargas_de_usuario(modelo_usuario.getCodigo_usuario());
+
+        Controlador_multa controlador_multa = new Controlador_multa();
+        String lista_de_multas = controlador_multa.consultar_multas_de_usuario(modelo_usuario.getCodigo_usuario());
+            
+        txtA_1.setText(lista_de_solicitudes);
+        txtA_2.setText(lista_de_prestamos);
+        txtA_3.setText(lista_de_descargas);
+        txtA_4.setText(lista_de_multas);
 //        controlador_libros_y_autores = new Controlador_libros_y_autores();
     }
 
@@ -316,13 +337,33 @@ public class Vista_ver_y_editar_usuario extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
                         
+        String codigo_usuario = modelo_usuario.getCodigo_usuario();
+        
         try {
+
+            Controlador_solicitud_de_libro controlador_solicitud_de_libro = new Controlador_solicitud_de_libro();
+            String lista_de_solicitudes = controlador_solicitud_de_libro.consultar_solicitudes_de_usuario(codigo_usuario);
+
+            Controlador_prestamo_de_libro controlador_prestamo_de_libro = new Controlador_prestamo_de_libro();
+            String lista_de_prestamos = controlador_prestamo_de_libro.consultar_prestamos_de_usuario(codigo_usuario);
+
+            Controlador_descarga_de_libro controlador_descarga_de_libro = new Controlador_descarga_de_libro();
+            String lista_de_descargas = controlador_descarga_de_libro.consultar_descargas_de_usuario(codigo_usuario);
+            
+            Controlador_multa controlador_multa = new Controlador_multa();
+            String lista_de_multas = controlador_multa.consultar_multas_de_usuario(codigo_usuario);
+            
             txt_1.setText(modelo_usuario.getCodigo_usuario());
             txt_2.setText(modelo_usuario.getNombre_usuario());
             txt_3.setText(modelo_usuario.getDireccion_usuario());
             txt_4.setText(modelo_usuario.getTelefono_usuario());
             txt_5.setText(modelo_usuario.getE_mail_usuario());
             txt_6.setText(modelo_usuario.getContrasenya_usuario());
+            
+            txtA_1.setText(lista_de_solicitudes);
+            txtA_2.setText(lista_de_prestamos);
+            txtA_3.setText(lista_de_descargas);
+            txtA_4.setText(lista_de_multas);
         }
         catch (Exception e){
 //            System.out.println("F");

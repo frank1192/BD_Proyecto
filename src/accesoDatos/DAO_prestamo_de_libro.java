@@ -130,5 +130,33 @@ public class DAO_prestamo_de_libro {
         catch(Exception e){ System.out.println("Actualizacion fallida"); System.out.println(e);}
         
     } 
+
+
+    public String seleccionar_prestamos_de_usuario(String codigo_usuario_solicitud){
+        
+        String lista_de_prestamos = "";
+        
+        String sql_select;
+        sql_select="SELECT "
+                + "numero_consecutivo_prestamo "
+                + "FROM prestamo_de_libro WHERE codigo_usuario_prestamo = '" + codigo_usuario_solicitud +  "'";
+        
+        try{
+
+            Statement sentencia = this.conexion.createStatement();
+            ResultSet seleccion = sentencia.executeQuery(sql_select);
+            
+            while (seleccion.next()){
+               lista_de_prestamos = lista_de_prestamos + "- " + seleccion.getString(1) + "\n";
+            }
+            
+            System.out.println("Seleccion exitosa");
+           
+            return lista_de_prestamos/*modelo_libros_y_autores*/;
+        }
+        catch(SQLException e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        
+    }
     
 }

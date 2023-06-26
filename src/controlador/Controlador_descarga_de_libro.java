@@ -42,5 +42,10 @@ public class Controlador_descarga_de_libro {
     public void eliminar_descarga(String ip_descarga) {
         dao_descarga_de_libro.eliminar_descarga_de_libro(ip_descarga);
     }
+    
+    public String consultar_descargas_de_usuario(String codigo_usuario){
+        String lista_de_descargas = dao_descarga_de_libro.seleccionar_descargas_de_usuario(codigo_usuario); 
+        return lista_de_descargas; 
+    }
 
 }

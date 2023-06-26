@@ -48,4 +48,9 @@ public class Controlador_multa {
     public void eliminar_multa(String codigo_multa) {
         dao_multa.eliminar_multa(codigo_multa);
     }
+    
+    public String consultar_multas_de_usuario(String codigo_usuario_multa){
+        String lista_de_solicitudes = dao_multa.seleccionar_multas_de_usuario(codigo_usuario_multa); 
+        return lista_de_solicitudes; 
+    }
 }

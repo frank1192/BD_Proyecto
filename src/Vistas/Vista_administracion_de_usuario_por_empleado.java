@@ -1,6 +1,10 @@
 
 package Vistas;
 
+import controlador.Controlador_descarga_de_libro;
+import controlador.Controlador_multa;
+import controlador.Controlador_prestamo_de_libro;
+import controlador.Controlador_solicitud_de_libro;
 import controlador.Controlador_usuario;
 import javax.swing.JOptionPane;
 import modelo.Modelo_usuario;
@@ -365,8 +369,20 @@ public class Vista_administracion_de_usuario_por_empleado extends javax.swing.JF
         String codigo_usuario = txt_1.getText();
                         
         try {
+            
+            Controlador_solicitud_de_libro controlador_solicitud_de_libro = new Controlador_solicitud_de_libro();
+            String lista_de_solicitudes = controlador_solicitud_de_libro.consultar_solicitudes_de_usuario(codigo_usuario);
+
+            Controlador_prestamo_de_libro controlador_prestamo_de_libro = new Controlador_prestamo_de_libro();
+            String lista_de_prestamos = controlador_prestamo_de_libro.consultar_prestamos_de_usuario(codigo_usuario);
+
+            Controlador_descarga_de_libro controlador_descarga_de_libro = new Controlador_descarga_de_libro();
+            String lista_de_descargas = controlador_descarga_de_libro.consultar_descargas_de_usuario(codigo_usuario);
+            
+            Controlador_multa controlador_multa = new Controlador_multa();
+            String lista_de_multas = controlador_multa.consultar_multas_de_usuario(codigo_usuario);
+                                        
             Modelo_usuario modelo_usuario = controlador_usuario.consultar_usuario(codigo_usuario);
-//            String lista_de_autores = controlador_libros_y_autores.consultar_autores_de_libro(codigo_usuario);
 
             txt_2.setText(modelo_usuario.getNombre_usuario());
             txt_3.setText(modelo_usuario.getDireccion_usuario());
@@ -374,9 +390,10 @@ public class Vista_administracion_de_usuario_por_empleado extends javax.swing.JF
             txt_5.setText(modelo_usuario.getE_mail_usuario());
             txt_6.setText(modelo_usuario.getContrasenya_usuario());
             
-//            txtA_1.setText(lista_de_autores);
-//            txtA_1.setText(lista_de_autores);
-//            txtA_1.setText(lista_de_autores);
+            txtA_1.setText(lista_de_solicitudes);
+            txtA_2.setText(lista_de_prestamos);
+            txtA_3.setText(lista_de_descargas);
+            txtA_4.setText(lista_de_multas);
 
 
 //            System.out.println("Consulta exitosa");

@@ -50,4 +50,9 @@ public class Controlador_solicitud_de_libro {
         dao_solicitud_de_libro.eliminar_solicitud_de_libro(numero_consecutivo_solicitud);
     }
 
+    public String consultar_solicitudes_de_usuario(String codigo_usuario){
+        String lista_de_solicitudes = dao_solicitud_de_libro.seleccionar_solicitudes_de_usuario(codigo_usuario); 
+        return lista_de_solicitudes; 
+    }
+    
 }
