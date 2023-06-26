@@ -122,5 +122,60 @@ public class DAO_autor {
         }
     }
 
+    public String seleccionar_autores_por_primer_nombre(String primer_nombre_autor){
+        
+        String lista_de_autores = "";
+        
+        String sql_select;
+        sql_select="SELECT "
+                + "codigo_autor "
+                + "FROM autor WHERE primer_nombre_autor = '" + primer_nombre_autor +  "'";
+        
+        try{
+
+            Statement sentencia = this.conexion.createStatement();
+            ResultSet seleccion = sentencia.executeQuery(sql_select);
+            
+            while (seleccion.next()){
+               lista_de_autores = lista_de_autores + "- " + seleccion.getString(1) + "\n";
+            }
+            
+            System.out.println("Seleccion exitosa");
+           
+            return lista_de_autores/*modelo_libros_y_autores*/;
+        }
+        catch(SQLException e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        
+    }    
+    
+    
+
+    public String seleccionar_autores_por_primer_apellido(String primer_apellido_autor){
+        
+        String lista_de_autores = "";
+        
+        String sql_select;
+        sql_select="SELECT "
+                + "codigo_autor "
+                + "FROM autor WHERE primer_apellido_autor = '" + primer_apellido_autor +  "'";
+        
+        try{
+
+            Statement sentencia = this.conexion.createStatement();
+            ResultSet seleccion = sentencia.executeQuery(sql_select);
+            
+            while (seleccion.next()){
+               lista_de_autores = lista_de_autores + "- " + seleccion.getString(1) + "\n";
+            }
+            
+            System.out.println("Seleccion exitosa");
+           
+            return lista_de_autores/*modelo_libros_y_autores*/;
+        }
+        catch(SQLException e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        
+    }    
     
 }

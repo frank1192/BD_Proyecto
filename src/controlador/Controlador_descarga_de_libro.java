@@ -47,5 +47,9 @@ public class Controlador_descarga_de_libro {
         String lista_de_descargas = dao_descarga_de_libro.seleccionar_descargas_de_usuario(codigo_usuario); 
         return lista_de_descargas; 
     }
+    
+    public String lista_de_descargas() {
+        return dao_descarga_de_libro.select_descarga_de_libros();
+    }
 
 }

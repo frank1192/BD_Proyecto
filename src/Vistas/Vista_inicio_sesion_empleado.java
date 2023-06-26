@@ -148,8 +148,14 @@ public class Vista_inicio_sesion_empleado extends javax.swing.JFrame {
             Modelo_empleado modelo_empleado = controlador_empleado.consultar_empleado(identificacion_empleado);
 
             if (contrasenya_empleado.equals(modelo_empleado.getContrasenya_empleado())) {
-                Vista_administracion_empleado vista_administracion_empleado = new Vista_administracion_empleado();
-                vista_administracion_empleado.setVisible(true);
+                if ("Administrador".equals(modelo_empleado.getCargo_empleado())) {
+                    Vista_administracion_empleado_jefe Vista_administracion_empleado_jefe = new Vista_administracion_empleado_jefe();
+                    Vista_administracion_empleado_jefe.setVisible(true);
+                } else {
+                    Vista_administracion_empleado vista_administracion_empleado = new Vista_administracion_empleado();
+                    vista_administracion_empleado.setVisible(true);
+                }
+                
                 dispose();
             }
             

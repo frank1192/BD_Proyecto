@@ -301,14 +301,16 @@ public class Vista_consulta_libro extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_7ActionPerformed
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-        String isbn_libro, titulo_libro, anyo_de_publicacion_libro, idioma_libro, numero_de_paginas_libro, codigo_area_de_conocimiento_libro, codigo_editorial_libro, lista_de_autores; 
+        String titulo_libro; 
 
         titulo_libro = txt_2.getText();
         
         String lista_de_libros = controlador_libro.consultar_libro_por_titulo(titulo_libro);
+
+        limpiarGUI();
         
         txtA_2.setText(lista_de_libros);
-        
+                
     }//GEN-LAST:event_btnBuscar1ActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
@@ -316,14 +318,14 @@ public class Vista_consulta_libro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFinalizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
-        txt_2.setText("");
+//        txt_2.setText("");
         txt_3.setText("");
         txt_4.setText("");
         txt_5.setText("");
         txt_6.setText("");
         txt_7.setText("");        
         txtA_1.setText("");
-        txtA_2.setText("");
+//        txtA_2.setText("");
     }
     
     /**

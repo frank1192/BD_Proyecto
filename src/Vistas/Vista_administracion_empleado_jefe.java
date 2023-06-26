@@ -5,22 +5,19 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import modelo.Modelo_usuario;
 
 /**
  *
  * @author Franklin Aguirre
  */
-public class Vista_administracion_usuario extends javax.swing.JFrame {
-    Modelo_usuario modelo_usuario;
+public class Vista_administracion_empleado_jefe extends javax.swing.JFrame {
 
     /**
      * Creates new form VistaIniciarSesion
      */
     private String nombre = "/IMAGENES/FondoIniciarSesion.jpg";
     private Fondo fondo =new Fondo(nombre);
-    public Vista_administracion_usuario(Modelo_usuario modelo_usuario_p) {
-        modelo_usuario = modelo_usuario_p;
+    public Vista_administracion_empleado_jefe() {
         this.setContentPane(fondo);
         initComponents();
     }
@@ -76,7 +73,7 @@ public class Vista_administracion_usuario extends javax.swing.JFrame {
         jComboBox1.setBackground(new java.awt.Color(255, 0, 51));
         jComboBox1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ver y editar información", "Consultar libros", "Consultar autores", "Descargar libro" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrar empleados", "Administrar usuarios", "Administrar prestamos", "Consultar descargas", "Administrar solicitudes", "Administrar multas", "Administrar libros", "Administrar autores", "Administrar editoriales", "Administrar areas de interes", "Administrar areas de conocimiento" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -90,9 +87,9 @@ public class Vista_administracion_usuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(57, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -125,35 +122,69 @@ public class Vista_administracion_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        Vista_inicio_sesion_usuario vista_inicio_sesion_usuario = new Vista_inicio_sesion_usuario();
-        vista_inicio_sesion_usuario.setVisible(true);
+        Vista_inicio_sesion_empleado vista_inicio_sesion_empleado = new Vista_inicio_sesion_empleado();
+        vista_inicio_sesion_empleado.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
         Object opcion_o = jComboBox1.getSelectedItem();
         String opcion_s = opcion_o.toString();
-        // Ver y editar información, Agendar prestamo, Descargar libro, Solicitar libro
-        if ("Ver y editar información".equals(opcion_s)) {
-            Vista_ver_y_editar_usuario vista_ver_y_editar_usuario = new Vista_ver_y_editar_usuario(modelo_usuario);
-            vista_ver_y_editar_usuario.setVisible(true);
+
+        if ("Administrar empleados".equals(opcion_s)) {
+            Vista_empleado vista_empleado = new Vista_empleado();
+            vista_empleado.setVisible(true);
+        }
+        
+        if ("Administrar usuarios".equals(opcion_s)) {
+            Vista_administracion_de_usuario_por_empleado vista_administracion_de_usuario_por_empleado = new Vista_administracion_de_usuario_por_empleado();
+            vista_administracion_de_usuario_por_empleado.setVisible(true);
         }
 
-        if ("Consultar libros".equals(opcion_s)) {
-            Vista_consulta_libro vista_consulta_libro = new Vista_consulta_libro();
-            vista_consulta_libro.setVisible(true);
+        if ("Administrar prestamos".equals(opcion_s)) {
+            Vista_prestamo_de_libro vista_prestamo_de_libro = new Vista_prestamo_de_libro();
+            vista_prestamo_de_libro.setVisible(true);
         }
         
-       if ("Consultar autores".equals(opcion_s)) { 
-            Vista_consulta_autor vista_consulta_autor = new Vista_consulta_autor();
-            vista_consulta_autor.setVisible(true);
-       }
-        
-        if ("Descargar libro".equals(opcion_s)) {
-            Vista_descarga_de_libro_usuario vista_descarga_de_libro_usuario = new Vista_descarga_de_libro_usuario(modelo_usuario);
-            vista_descarga_de_libro_usuario.setVisible(true);
+        if ("Consultar descargas".equals(opcion_s)) {
+            Vista_descarga_de_libro vista_descarga_de_libro = new Vista_descarga_de_libro();
+            vista_descarga_de_libro.setVisible(true);
+        }
+
+        if ("Administrar solicitudes".equals(opcion_s)) {
+            Vista_solicitud_de_libro vista_solicitud_de_libro = new Vista_solicitud_de_libro();
+            vista_solicitud_de_libro.setVisible(true);
+        }
+
+        if ("Administrar multas".equals(opcion_s)) {
+            Vista_multa vista_multa = new Vista_multa();
+            vista_multa.setVisible(true);
+        }
+
+        if ("Administrar libros".equals(opcion_s)) {
+            Vista_libro vista_libro = new Vista_libro();
+            vista_libro.setVisible(true);
+        }
+
+        if ("Administrar autores".equals(opcion_s)) {
+            Vista_autor vista_autor = new Vista_autor();
+            vista_autor.setVisible(true);
         }
         
+        if ("Administrar editoriales".equals(opcion_s)) {
+            Vista_editorial vista_editorial = new Vista_editorial();
+            vista_editorial.setVisible(true);
+        }
+        
+        if ("Administrar areas de interes".equals(opcion_s)) {
+            Vista_area_de_interes vista_area_de_interes = new Vista_area_de_interes();
+            vista_area_de_interes.setVisible(true);
+        }
+        
+        if ("Administrar areas de conocimiento".equals(opcion_s)) {
+            Vista_area_de_conocimiento vista_area_de_conocimiento = new Vista_area_de_conocimiento();
+            vista_area_de_conocimiento.setVisible(true);
+        }
     }//GEN-LAST:event_btnEntrar1ActionPerformed
 
     /**

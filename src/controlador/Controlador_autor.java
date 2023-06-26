@@ -46,8 +46,17 @@ public class Controlador_autor {
     }
     
     public void eliminar_autor(String codigo_autor) {
-    dao_autor.eliminar_autor(codigo_autor);
+        dao_autor.eliminar_autor(codigo_autor);
     }
 
+
+    public String consultar_autores_por_primer_nombre(String primer_nombre_autor){
+        String lista_de_autores = dao_autor.seleccionar_autores_por_primer_nombre(primer_nombre_autor);
+        return lista_de_autores;
+    }
     
+    public String consultar_autores_por_primer_apellido(String primer_apellido_autor){
+        String lista_de_autores = dao_autor.seleccionar_autores_por_primer_apellido(primer_apellido_autor);
+        return lista_de_autores;
+    }
 }

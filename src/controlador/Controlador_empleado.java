@@ -20,13 +20,13 @@ public class Controlador_empleado {
         dao_empleado = new DAO_empleado();           
     }
     
-    public void agregar_empleado(String identificacion_empleado, String nombre_empleado, String cargo_empleado){
+    public void agregar_empleado(String identificacion_empleado, String nombre_empleado, String cargo_empleado, String contrasenya_empleado){
         Modelo_empleado modelo_empleado = new Modelo_empleado();        
 
         modelo_empleado.setIdentificacion_empleado(identificacion_empleado);
         modelo_empleado.setNombre_empleado(nombre_empleado);
         modelo_empleado.setCargo_empleado(cargo_empleado);
-//        modelo_empleado.setContrasenya_empleado(contrasenya_empleado);
+        modelo_empleado.setContrasenya_empleado(contrasenya_empleado);
         
         dao_empleado.insertar_empleado(modelo_empleado);
     }

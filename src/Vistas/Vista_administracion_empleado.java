@@ -73,7 +73,7 @@ public class Vista_administracion_empleado extends javax.swing.JFrame {
         jComboBox1.setBackground(new java.awt.Color(255, 0, 51));
         jComboBox1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrar usuarios", "Administrar prestamos", "Administrar descargas", "Administrar solicitudes", "Administrar multas", "Administrar libros", "Administrar autores", "Administrar editoriales", "Administrar areas de interes", "Administrar areas de conocimiento" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrar usuarios", "Administrar prestamos", "Consultar descargas", "Administrar solicitudes", "Administrar multas", "Administrar libros", "Administrar autores", "Administrar editoriales", "Administrar areas de interes", "Administrar areas de conocimiento" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -141,10 +141,10 @@ public class Vista_administracion_empleado extends javax.swing.JFrame {
             vista_prestamo_de_libro.setVisible(true);
         }
         
-//        if ("Administrar descargas".equals(opcion_s)) {
-//            Vista_descarga_de_libro vista_descarga_de_libro = new Vista_descarga_de_libro(modelo_usuario);
-//            vista_descarga_de_libro.setVisible(true);
-//        }
+        if ("Consultar descargas".equals(opcion_s)) {
+            Vista_descarga_de_libro vista_descarga_de_libro = new Vista_descarga_de_libro();
+            vista_descarga_de_libro.setVisible(true);
+        }
 
         if ("Administrar solicitudes".equals(opcion_s)) {
             Vista_solicitud_de_libro vista_solicitud_de_libro = new Vista_solicitud_de_libro();

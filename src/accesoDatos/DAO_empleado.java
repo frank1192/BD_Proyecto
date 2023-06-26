@@ -52,7 +52,7 @@ public class DAO_empleado {
         sql_select="SELECT "
                 + "identificacion_empleado, "
                 + "nombre_empleado, "
-                + "identificacion_empleado, "
+                + "cargo_empleado, "
                 + "contrasenya_empleado "
                 + "FROM empleado WHERE identificacion_empleado = '" + identificacion_empleado +  "'";
         

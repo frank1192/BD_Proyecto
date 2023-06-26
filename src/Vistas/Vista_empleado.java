@@ -39,6 +39,8 @@ public class Vista_empleado extends javax.swing.JFrame {
         btnActualizar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        lbl_4 = new javax.swing.JLabel();
+        txt_4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +89,11 @@ public class Vista_empleado extends javax.swing.JFrame {
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorderPainted(false);
         btnActualizar.setFocusable(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(255, 0, 51));
         btnAgregar.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
@@ -112,6 +119,11 @@ public class Vista_empleado extends javax.swing.JFrame {
             }
         });
 
+        lbl_4.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        lbl_4.setText("Contraseña:");
+
+        txt_4.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,12 +133,15 @@ public class Vista_empleado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_3)
                     .addComponent(lbl_2)
-                    .addComponent(lbl_1))
+                    .addComponent(lbl_1)
+                    .addComponent(lbl_4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt_2)
-                    .addComponent(txt_1)
-                    .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txt_2)
+                        .addComponent(txt_1)
+                        .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -149,18 +164,26 @@ public class Vista_empleado extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8))
-                    .addComponent(lbl_1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(lbl_2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_3))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(txt_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(lbl_2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_3)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl_4)
+                        .addGap(52, 52, 52)))
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                 .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,6 +202,7 @@ public class Vista_empleado extends javax.swing.JFrame {
 
             txt_2.setText(modelo_empleado.getNombre_empleado());
             txt_3.setText(modelo_empleado.getCargo_empleado());
+            txt_4.setText(modelo_empleado.getContrasenya_empleado());
             
 //            System.out.println("Consulta exitosa");
 
@@ -190,16 +214,17 @@ public class Vista_empleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String identificacion_empleado, nombre_empleado, cargo_empleado; 
+        String identificacion_empleado, nombre_empleado, cargo_empleado, contrasenya_empleado; 
        
         identificacion_empleado = txt_1.getText();
         nombre_empleado = txt_2.getText();
         cargo_empleado = txt_3.getText();
+        contrasenya_empleado = txt_4.getText();
                 
 //        descripcion = txtA_descripcion.getText();getText
        
         try{
-            controlador_empleado.agregar_empleado(identificacion_empleado, nombre_empleado, cargo_empleado);
+            controlador_empleado.agregar_empleado(identificacion_empleado, nombre_empleado, cargo_empleado, contrasenya_empleado);
            
             limpiarGUI();
 //            txtA_descripcion.append("Guardado exitoso");
@@ -227,10 +252,48 @@ public class Vista_empleado extends javax.swing.JFrame {
         dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+        String identificacion_empleado, nombre_empleado, cargo_empleado, contrasenya_empleado; 
+       
+        identificacion_empleado = txt_1.getText();
+        nombre_empleado = txt_2.getText();
+        cargo_empleado = txt_3.getText();
+        contrasenya_empleado = txt_4.getText();
+        
+        
+        Modelo_empleado modelo_empleado = new Modelo_empleado(); 
+        
+        modelo_empleado.setIdentificacion_empleado(identificacion_empleado);
+        modelo_empleado.setNombre_empleado(nombre_empleado);
+        modelo_empleado.setCargo_empleado(cargo_empleado);
+        modelo_empleado.setContrasenya_empleado(contrasenya_empleado);
+
+        try{
+
+            if (!"".equals(nombre_empleado)){
+                controlador_empleado.modificar_empleado(modelo_empleado, "nombre_empleado", nombre_empleado);
+            }
+
+            if (!"".equals(cargo_empleado)){
+                controlador_empleado.modificar_empleado(modelo_empleado, "cargo_empleado", cargo_empleado);
+            }
+
+            if (!"".equals(contrasenya_empleado)){
+                controlador_empleado.modificar_empleado(modelo_empleado, "contrasenya_empleado", contrasenya_empleado);
+            }
+                
+        } catch(Exception e){
+        }   
+        
+        limpiarGUI();
+    }//GEN-LAST:event_btnActualizarActionPerformed
    private void limpiarGUI(){
         txt_1.setText("");
         txt_2.setText("");
         txt_3.setText("");
+        txt_4.setText("");
     }
     
     /**
@@ -247,8 +310,10 @@ public class Vista_empleado extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_1;
     private javax.swing.JLabel lbl_2;
     private javax.swing.JLabel lbl_3;
+    private javax.swing.JLabel lbl_4;
     public javax.swing.JTextField txt_1;
     public javax.swing.JTextField txt_2;
     public javax.swing.JTextField txt_3;
+    public javax.swing.JTextField txt_4;
     // End of variables declaration//GEN-END:variables
 }

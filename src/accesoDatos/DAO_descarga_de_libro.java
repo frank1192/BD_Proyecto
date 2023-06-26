@@ -146,5 +146,34 @@ public class DAO_descarga_de_libro {
         catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
         
     }        
+    
+    
+    
+    public String select_descarga_de_libros(){
+        
+        String lista_de_solicitudes = "";
+        
+        String sql_select;
+        sql_select="SELECT "
+                + "ip_descarga "
+                + "FROM descarga_de_libro";
+        
+        try{
+
+            Statement sentencia = this.conexion.createStatement();
+            ResultSet seleccion = sentencia.executeQuery(sql_select);
+            
+            while (seleccion.next()){
+               lista_de_solicitudes = lista_de_solicitudes + "- " + seleccion.getString(1) + "\n";
+            }
+            
+            System.out.println("Seleccion exitosa");
+           
+            return lista_de_solicitudes/*modelo_libros_y_autores*/;
+        }
+        catch(SQLException e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        catch(Exception e){ System.out.println("Seleccion fallida"); System.out.println(e); return null;}
+        
+    }        
 
 }
